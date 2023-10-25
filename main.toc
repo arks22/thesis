@@ -1,18 +1,47 @@
 \contentsline {chapter}{\numberline {第1章}研究背景}{5}
-\contentsline {chapter}{\numberline {第2章}動画予測}{7}
-\contentsline {section}{\numberline {2.1}基本的な動画予測技術}{7}
-\contentsline {section}{\numberline {2.2}Motion Aware Unit}{7}
-\contentsline {chapter}{\numberline {第3章}データ}{9}
-\contentsline {section}{\numberline {3.1}太陽全球紫外線像}{9}
-\contentsline {section}{\numberline {3.2}前処理}{9}
-\contentsline {subsection}{\numberline {3.2.1}ダウンロード}{9}
-\contentsline {subsection}{\numberline {3.2.2}破損画像の除去}{9}
-\contentsline {subsection}{\numberline {3.2.3}正規化、スケーリング、リサイズ}{9}
-\contentsline {subsection}{\numberline {3.2.4}データセットの作成}{9}
-\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いたSDO/AIA 211Åの全球時系列予測}{11}
-\contentsline {section}{\numberline {4.1}実験概要}{11}
-\contentsline {section}{\numberline {4.2}学習の推移}{11}
-\contentsline {section}{\numberline {4.3}実験結果}{11}
-\contentsline {subsection}{\numberline {4.3.1}全球平均輝度と単純差動回転モデルとの比較}{11}
-\contentsline {subsection}{\numberline {4.3.2}経度ごとの平均輝度と単純差動回転モデルとの比較}{11}
-\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力としたSDO/AIA 211Åの全球時系列予測}{13}
+\contentsline {chapter}{\numberline {第2章}動画予測}{6}
+\contentsline {section}{\numberline {2.1}動画予測のための基礎技術}{6}
+\contentsline {subsection}{\numberline {2.1.1}Convolutional Neural Network (CNN)}{6}
+\contentsline {subsection}{\numberline {2.1.2}Encoder-Decoder}{6}
+\contentsline {subsection}{\numberline {2.1.3}Long Short Term Memory (LSTM)}{6}
+\contentsline {subsection}{\numberline {2.1.4}Attention}{6}
+\contentsline {section}{\numberline {2.2}動画予測フレームワーク}{6}
+\contentsline {subsection}{\numberline {2.2.1}ConvLSTM}{6}
+\contentsline {subsection}{\numberline {2.2.2}PredRNN}{6}
+\contentsline {subsection}{\numberline {2.2.3}Motion Aware Unit}{6}
+\contentsline {chapter}{\numberline {第3章}データ}{7}
+\contentsline {section}{\numberline {3.1}SDO / AIA}{7}
+\contentsline {subsection}{\numberline {3.1.1}AIA 171Å}{8}
+\contentsline {subsection}{\numberline {3.1.2}AIA 193Å}{8}
+\contentsline {subsection}{\numberline {3.1.3}AIA 211Å}{8}
+\contentsline {section}{\numberline {3.2}データセットの作成}{8}
+\contentsline {subsection}{\numberline {3.2.1}破損画像の除去}{9}
+\contentsline {subsection}{\numberline {3.2.2}画像の前処理}{9}
+\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}{10}
+\contentsline {section}{\numberline {4.1}実験概要}{10}
+\contentsline {section}{\numberline {4.2}学習の推移}{10}
+\contentsline {section}{\numberline {4.3}実験結果}{10}
+\contentsline {subsection}{\numberline {4.3.1}全球での評価}{10}
+\contentsline {subsubsection}{平均輝度とその誤差}{10}
+\contentsline {subsubsection}{画像類似度}{10}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{10}
+\contentsline {subsection}{\numberline {4.3.2}経度依存性の評価}{10}
+\contentsline {subsubsection}{平均輝度とその誤差}{10}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{10}
+\contentsline {subsection}{\numberline {4.3.3}東側リムから出現する活動領域に対する視覚的評価}{10}
+\contentsline {section}{\numberline {4.4}考察}{10}
+\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力とした紫外線像の全球時系列予測}{11}
+\contentsline {section}{\numberline {5.1}実験概要}{11}
+\contentsline {section}{\numberline {5.2}学習の推移}{11}
+\contentsline {section}{\numberline {5.3}実験結果}{11}
+\contentsline {subsection}{\numberline {5.3.1}全球での評価}{11}
+\contentsline {subsubsection}{平均輝度とその誤差}{11}
+\contentsline {subsubsection}{画像類似度}{11}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{11}
+\contentsline {subsection}{\numberline {5.3.2}経度依存性の評価}{11}
+\contentsline {subsubsection}{平均輝度とその誤差}{11}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{11}
+\contentsline {subsection}{\numberline {5.3.3}東側リムから出現する活動領域に対する視覚的評価}{11}
+\contentsline {section}{\numberline {5.4}考察}{11}
+\contentsline {chapter}{\numberline {第6章}まとめ}{12}
+\contentsline {chapter}{参考文献}{13}

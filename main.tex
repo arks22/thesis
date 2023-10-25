@@ -1,16 +1,30 @@
 % main.tex
 
-\documentclass[a4paper,12pt]{jsbook}
+\documentclass[a4paper,11pt]{jsreport}
 \usepackage{pxrubrica} % ルビ（ふりがな）を使用する場合
 \usepackage[dvipdfmx]{graphicx} % 画像の挿入のためのパッケージ
 \usepackage{url} % URLの挿入のためのパッケージ
-\usepackage{otf}
-
 \usepackage{geometry}
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{parskip}
+\usepackage{otf}
 
+
+\DeclareFontShape{JY1}{mc}{m}{it}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY1}{mc}{m}{sl}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY1}{mc}{m}{sc}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JY1}{hgt}{m}{it}{<->ssub*hgt/m/n}{}
+\DeclareFontShape{JY1}{hgt}{m}{sl}{<->ssub*hgt/m/n}{}
+\DeclareFontShape{JY1}{mc}{bx}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JY1}{mc}{bx}{sl}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT1}{mc}{m}{it}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT1}{mc}{m}{sl}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT1}{mc}{m}{sc}{<->ssub*mc/m/n}{}
+\DeclareFontShape{JT1}{hgt}{m}{it}{<->ssub*hgt/m/n}{}
+\DeclareFontShape{JT1}{hgt}{m}{sl}{<->ssub*hgt/m/n}{}
+\DeclareFontShape{JT1}{mc}{bx}{it}{<->ssub*gt/m/n}{}
+\DeclareFontShape{JT1}{mc}{bx}{sl}{<->ssub*gt/m/n}{}
 
 \begin{document}
 
@@ -25,5 +39,11 @@
 \input{05_data}
 \input{06_exp1}
 \input{07_exp2}
+\input{08_summary}
+\input{09_thanks}
+
+
+\bibliography{references} % .bibファイルの名前
+\bibliographystyle{junsrt} % 文献スタイル
 
 \end{document}

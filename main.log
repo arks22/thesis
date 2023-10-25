@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.1.23)  24 OCT 2023 20:05
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.1.23)  26 OCT 2023 08:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -7,28 +7,28 @@ entering extended mode
 (./main.tex
 pLaTeX2e <2018-04-01>+1 (based on LaTeX2e <2018-04-01> patch level 2)
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsbook.cls
-Document Class: jsbook 2018/03/11 jsclasses (okumura, texjporg)
+(/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsreport.cls
+Document Class: jsreport 2018/03/11 jsclasses (okumura, texjporg)
 \jsc@mpt=\dimen118
 \jsc@mmm=\dimen119
 \jsc@smallskipamount=\skip41
-LaTeX Info: Redefining \rmfamily on input line 471.
-LaTeX Info: Redefining \sffamily on input line 474.
-LaTeX Info: Redefining \ttfamily on input line 477.
-LaTeX Info: Redefining \textmc on input line 481.
-LaTeX Info: Redefining \textgt on input line 483.
+LaTeX Info: Redefining \rmfamily on input line 467.
+LaTeX Info: Redefining \sffamily on input line 470.
+LaTeX Info: Redefining \ttfamily on input line 473.
+LaTeX Info: Redefining \textmc on input line 477.
+LaTeX Info: Redefining \textgt on input line 479.
 \symmincho=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
-(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 545.
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 541.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 736.
+(Font)              scaled to size 9.60999pt on input line 732.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 9.60999pt on input line 736.
+(Font)              scaled to size 9.60999pt on input line 732.
 \fullwidth=\dimen120
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 897.
+(Font)              scaled to size 7.68799pt on input line 871.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.68799pt on input line 897.
+(Font)              scaled to size 7.68799pt on input line 871.
 \c@part=\count83
 \c@chapter=\count84
 \c@section=\count85
@@ -36,6 +36,7 @@ LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
 \c@subsubsection=\count87
 \c@paragraph=\count88
 \c@subparagraph=\count89
+\@abstractbox=\box42
 \c@figure=\count90
 \c@table=\count91
 \abovecaptionskip=\skip42
@@ -59,9 +60,9 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \pxrr@cnta=\count93
 \pxrr@cntr=\count94
 \pxrr@dima=\dimen124
-\pxrr@boxa=\box42
-\pxrr@boxb=\box43
-\pxrr@boxr=\box44
+\pxrr@boxa=\box43
+\pxrr@boxb=\box44
+\pxrr@boxr=\box45
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
@@ -80,6 +81,45 @@ File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/03/24 v5.7 Page Geometry
+ (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count95
+\Gm@cntv=\count96
+\c@Gm@tempcnt=\count97
+\Gm@bindingoffset=\dimen127
+\Gm@wd@mp=\dimen128
+\Gm@odd@mp=\dimen129
+\Gm@even@mp=\dimen130
+\Gm@layoutwidth=\dimen131
+\Gm@layoutheight=\dimen132
+\Gm@layouthoffset=\dimen133
+\Gm@layoutvoffset=\dimen134
+\Gm@dimlist=\toks16
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
+\multirow@colwidth=\skip44
+\multirow@cntb=\count98
+\multirow@dima=\skip45
+\bigstrutjot=\dimen135
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
+\col@sep=\dimen136
+\ar@mcellbox=\box46
+\extrarowheight=\dimen137
+\NC@list=\toks17
+\extratabsurround=\skip46
+\backup@length=\skip47
+\ar@cellbox=\box47
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
 ) (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf-uptex/otf.sty
 Package: otf 2018/02/01 v1.7b7 psitau, u0.20 ttk
 LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 314.
@@ -98,72 +138,33 @@ LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (Font)                  JY1/hgt/m/n --> JY1/hgt/bx/n on input line 318.
  (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
 Package: ajmacros 2005/12/25 13:52 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp>
-\@tempcntc=\count95
-\@tempcntd=\count96
-\@tempcnte=\count97
-\@tempcntf=\count98
-)) (/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2018/03/24 v5.7 Page Geometry
- (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-) (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-\Gm@cnth=\count99
-\Gm@cntv=\count100
-\c@Gm@tempcnt=\count101
-\Gm@bindingoffset=\dimen127
-\Gm@wd@mp=\dimen128
-\Gm@odd@mp=\dimen129
-\Gm@even@mp=\dimen130
-\Gm@layoutwidth=\dimen131
-\Gm@layoutheight=\dimen132
-\Gm@layouthoffset=\dimen133
-\Gm@layoutvoffset=\dimen134
-\Gm@dimlist=\toks16
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
-\multirow@colwidth=\skip44
-\multirow@cntb=\count102
-\multirow@dima=\skip45
-\bigstrutjot=\dimen135
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
-Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
-\col@sep=\dimen136
-\ar@mcellbox=\box45
-\extrarowheight=\dimen137
-\NC@list=\toks17
-\extratabsurround=\skip46
-\backup@length=\skip47
-\ar@cellbox=\box46
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
-Package: parskip 2001/04/09 non-zero parskip adjustments
-) (./main.aux)
+\@tempcntc=\count99
+\@tempcntd=\count100
+\@tempcnte=\count101
+\@tempcntf=\count102
+)) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 29.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 15.
+(Font)              scaled to size 9.24683pt on input line 29.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -172,30 +173,30 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside 
-* h-part:(L,W,R)=(71.70166pt, 418.25368pt, 107.55254pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
 * v-part:(T,H,B)=(101.40665pt, 591.5302pt, 152.11pt)
-* \paperwidth=717.0044pt
-* \paperheight=1014.03809pt
+* \paperwidth=654.26651pt
+* \paperheight=925.30975pt
 * \textwidth=418.25368pt
 * \textheight=591.5302pt
-* \oddsidemargin=-0.56833pt
-* \evensidemargin=35.28255pt
-* \topmargin=-5.17418pt
+* \oddsidemargin=17.3571pt
+* \evensidemargin=17.3571pt
+* \topmargin=-4.09148pt
 * \headheight=20.0pt
-* \headsep=14.31084pt
+* \headsep=13.22813pt
 * \topskip=12.76073pt
-* \footskip=0.0pt
+* \footskip=25.98886pt
 * \marginparwidth=18.49374pt
 * \marginparsep=18.49374pt
 * \columnsep=18.49374pt
 * \skip\footins=16.0pt plus 5.0pt minus 2.0pt
-* \hoffset=12.0588pt
-* \voffset=12.0588pt
-* \mag=1200
+* \hoffset=6.27573pt
+* \voffset=6.27573pt
+* \mag=1095
 * \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
+* \@twosidefalse
+* \@mparswitchfalse
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
@@ -222,37 +223,28 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 
 ]) (./02_abstract.tex)
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 21.
+(Font)              scaled to size 9.24683pt on input line 35.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 21.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 21.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 21.
-LaTeX Font Info:    Font shape `JT1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 21.
-LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 21.
-LaTeX Font Info:    Font shape `JY1/hmc/bx/n' in size <10> not available
-(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 21.
-LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 21.
+(Font)              scaled to size 9.24683pt on input line 35.
  [2
 
 ]
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 21.
+(Font)              scaled to size 23.0061pt on input line 35.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 21.
- (./main.toc)
+(Font)              scaled to size 23.0061pt on input line 35.
+ (./main.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 3.
+ [3
+
+])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- (./03_introduction.tex [3
-
-] [4
-
-]
+ (./03_introduction.tex [4]
 第1章
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
 (Font)              scaled to size 19.17792pt on input line 1.
@@ -262,7 +254,7 @@ LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
 (Font)              scaled to size 19.17792pt on input line 1.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 19.17792pt on input line 1.
-) (./04_videoprediction.tex [5] [6
+) (./04_videoprediction.tex [5
 
 ]
 第2章
@@ -270,34 +262,56 @@ LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 3.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 3.
-) (./05_data.tex [7] [8
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 5.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 5.
+) (./05_data.tex [6
 
 ]
 第3章
-LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 6.
-LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 6.
-LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 6.
-LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 6.
-) (./06_exp1.tex [9] [10
+[7
 
 ]
+LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 45.
+LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 45.
+) (./06_exp1.tex [8] [9]
 第4章
-) (./07_exp2.tex [11] [12
+) (./07_exp2.tex [10
 
 ]
 第5章
-) [13] (./main.aux) ) 
-Here is how much of TeX's memory you used:
- 4021 strings out of 493281
- 52913 string characters out of 6145041
- 127320 words of memory out of 5000000
- 7936 multiletter control sequences out of 15000+600000
- 14743 words of font info for 73 fonts, out of 8000000 for 9000
- 934 hyphenation exceptions out of 8191
- 30i,8n,22p,302b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+) (./08_summary.tex [11
 
-Output written on main.dvi (13 pages, 9252 bytes).
+]
+第6章
+) (./09_thanks.tex) (./main.bbl [12
+
+]
+LaTeX Font Info:    Font shape `JT1/hgt/m/it' in size <10> not available
+(Font)              Font shape `JT1/hgt/m/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/hgt/m/it' in size <10> not available
+(Font)              Font shape `JY1/hgt/m/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 5.
+) [13
+
+] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 4032 strings out of 493281
+ 53055 string characters out of 6145041
+ 129228 words of memory out of 5000000
+ 7937 multiletter control sequences out of 15000+600000
+ 15282 words of font info for 76 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 25i,8n,22p,564b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on main.dvi (13 pages, 23332 bytes).

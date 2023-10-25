@@ -1,0 +1,18 @@
+\contentsline {chapter}{\numberline {第1章}研究背景}{5}
+\contentsline {chapter}{\numberline {第2章}動画予測}{7}
+\contentsline {section}{\numberline {2.1}基本的な動画予測技術}{7}
+\contentsline {section}{\numberline {2.2}Motion Aware Unit}{7}
+\contentsline {chapter}{\numberline {第3章}データ}{9}
+\contentsline {section}{\numberline {3.1}太陽全球紫外線像}{9}
+\contentsline {section}{\numberline {3.2}前処理}{9}
+\contentsline {subsection}{\numberline {3.2.1}ダウンロード}{9}
+\contentsline {subsection}{\numberline {3.2.2}破損画像の除去}{9}
+\contentsline {subsection}{\numberline {3.2.3}正規化、スケーリング、リサイズ}{9}
+\contentsline {subsection}{\numberline {3.2.4}データセットの作成}{9}
+\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いたSDO/AIA 211Åの全球時系列予測}{11}
+\contentsline {section}{\numberline {4.1}実験概要}{11}
+\contentsline {section}{\numberline {4.2}学習の推移}{11}
+\contentsline {section}{\numberline {4.3}実験結果}{11}
+\contentsline {subsection}{\numberline {4.3.1}全球平均輝度と単純差動回転モデルとの比較}{11}
+\contentsline {subsection}{\numberline {4.3.2}経度ごとの平均輝度と単純差動回転モデルとの比較}{11}
+\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力としたSDO/AIA 211Åの全球時系列予測}{13}

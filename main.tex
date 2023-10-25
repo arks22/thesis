@@ -1,0 +1,29 @@
+% main.tex
+
+\documentclass[a4paper,12pt]{jsbook}
+\usepackage{pxrubrica} % ルビ（ふりがな）を使用する場合
+\usepackage[dvipdfmx]{graphicx} % 画像の挿入のためのパッケージ
+\usepackage{url} % URLの挿入のためのパッケージ
+\usepackage{otf}
+
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{parskip}
+
+
+\begin{document}
+
+\input{01_coverpage}
+\input{02_abstract}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\input{03_introduction}
+\input{04_videoprediction}
+\input{05_data}
+\input{06_exp1}
+\input{07_exp2}
+
+\end{document}

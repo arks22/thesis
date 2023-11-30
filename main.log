@@ -1,10 +1,10 @@
-This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.1.23)  26 OCT 2023 09:23
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2019.1.23)  30 NOV 2023 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**/Users/arks22/Documents/lab/thesis/main
+(/Users/arks22/Documents/lab/thesis/main.tex
 pLaTeX2e <2018-04-01>+1 (based on LaTeX2e <2018-04-01> patch level 2)
 Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
 (/usr/local/texlive/2018/texmf-dist/tex/platex/jsclasses/jsreport.cls
@@ -78,6 +78,33 @@ File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
 ))
 \Gin@req@height=\dimen125
 \Gin@req@width=\dimen126
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen127
+\captionmargin@=\dimen128
+\captionwidth=\dimen129
+\caption@tempdima=\dimen130
+\caption@indent=\dimen131
+\caption@parindent=\dimen132
+\caption@hangindent=\dimen133
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->{\small \advance \leftskip .0628\linewidth \advance \rightskip .0628\linewidth \vskip \abovecaptionskip \sbox \@tempboxa {#1\hskip 1zw\relax #2}\ifdim \wd \@tempboxa <\hsize \centering \fi #1\hskip 1zw\relax #2\par \vskip \belowcaptionskip }.
+\c@ContinuedFloat=\count95
+)
+\c@subfigure=\count96
+\c@subtable=\count97
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -91,29 +118,29 @@ Package ifvtex Info: VTeX not detected.
 ) (/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count95
-\Gm@cntv=\count96
-\c@Gm@tempcnt=\count97
-\Gm@bindingoffset=\dimen127
-\Gm@wd@mp=\dimen128
-\Gm@odd@mp=\dimen129
-\Gm@even@mp=\dimen130
-\Gm@layoutwidth=\dimen131
-\Gm@layoutheight=\dimen132
-\Gm@layouthoffset=\dimen133
-\Gm@layoutvoffset=\dimen134
+\Gm@cnth=\count98
+\Gm@cntv=\count99
+\c@Gm@tempcnt=\count100
+\Gm@bindingoffset=\dimen134
+\Gm@wd@mp=\dimen135
+\Gm@odd@mp=\dimen136
+\Gm@even@mp=\dimen137
+\Gm@layoutwidth=\dimen138
+\Gm@layoutheight=\dimen139
+\Gm@layouthoffset=\dimen140
+\Gm@layoutvoffset=\dimen141
 \Gm@dimlist=\toks16
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2016/11/25 v2.2 Span multiple rows of a table
 \multirow@colwidth=\skip44
-\multirow@cntb=\count98
+\multirow@cntb=\count101
 \multirow@dima=\skip45
-\bigstrutjot=\dimen135
+\bigstrutjot=\dimen142
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/array.sty
 Package: array 2018/04/07 v2.4g Tabular extension package (FMi)
-\col@sep=\dimen136
+\col@sep=\dimen143
 \ar@mcellbox=\box46
-\extrarowheight=\dimen137
+\extrarowheight=\dimen144
 \NC@list=\toks17
 \extratabsurround=\skip46
 \backup@length=\skip47
@@ -138,33 +165,35 @@ LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (Font)                  JY1/hgt/m/n --> JY1/hgt/bx/n on input line 318.
  (/usr/local/texlive/2018/texmf-dist/tex/platex/japanese-otf/ajmacros.sty
 Package: ajmacros 2005/12/25 13:52 iNOUE Koich! <inoue@ma.ns.musashi-tech.ac.jp>
-\@tempcntc=\count99
-\@tempcntd=\count100
-\@tempcnte=\count101
-\@tempcntf=\count102
+\@tempcntc=\count102
+\@tempcntd=\count103
+\@tempcnte=\count104
+\@tempcntf=\count105
 )) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 29.
+(Font)              scaled to size 9.24683pt on input line 30.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 29.
+(Font)              scaled to size 9.24683pt on input line 30.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -223,16 +252,16 @@ LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
 
 ]) (./02_abstract.tex)
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 35.
+(Font)              scaled to size 9.24683pt on input line 36.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 35.
+(Font)              scaled to size 9.24683pt on input line 36.
  [2
 
 ]
 LaTeX Font Info:    Font shape `JT1/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 35.
+(Font)              scaled to size 23.0061pt on input line 36.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
-(Font)              scaled to size 23.0061pt on input line 35.
+(Font)              scaled to size 23.0061pt on input line 36.
  (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 3.
@@ -274,24 +303,34 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 
 ]
 第3章
+File: figures/latest_256_0211.jpg Graphic file (type bmp)
+<figures/latest_256_0211.jpg>
 [7
 
-]
+] [8]
+File: figures/bad_sample0.png Graphic file (type bmp)
+<figures/bad_sample0.png>
 LaTeX Font Info:    Font shape `JT1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 46.
+(Font)              scaled to size 8.32214pt on input line 70.
 LaTeX Font Info:    Font shape `JY1/hmc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 46.
-) (./06_exp1.tex [8] [9]
+(Font)              scaled to size 8.32214pt on input line 70.
+File: figures/bad_sample1.png Graphic file (type bmp)
+<figures/bad_sample1.png>
+File: figures/bad_sample2.png Graphic file (type bmp)
+<figures/bad_sample2.png>
+File: figures/bad_sample1.png Graphic file (type bmp)
+<figures/bad_sample1.png>
+) (./06_exp1.tex [9] [10] [11]
 第4章
-) (./07_exp2.tex [10
+) (./07_exp2.tex [12
 
-]
+] [13]
 第5章
-) (./08_summary.tex [11
+) (./08_summary.tex [14
 
-]
+] [15]
 第6章
-) (./09_thanks.tex) (./main.bbl [12
+) (./09_thanks.tex) (./main.bbl [16
 
 ]
 LaTeX Font Info:    Font shape `JT1/hgt/m/it' in size <10> not available
@@ -302,16 +341,16 @@ LaTeX Font Info:    Font shape `JY1/hgt/m/it' in size <10> not available
 (Font)              Font shape `JY1/hgt/m/n' tried instead on input line 5.
 LaTeX Font Info:    Font shape `JY1/hgt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 5.
-) [13
+) [17
 
 ] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4032 strings out of 493281
- 53055 string characters out of 6145041
- 129228 words of memory out of 5000000
- 7937 multiletter control sequences out of 15000+600000
+ 5175 strings out of 493281
+ 73867 string characters out of 6145041
+ 149660 words of memory out of 5000000
+ 9061 multiletter control sequences out of 15000+600000
  15282 words of font info for 76 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 25i,8n,22p,564b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,8n,40p,607b,991s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.dvi (13 pages, 23292 bytes).
+Output written on main.dvi (17 pages, 30504 bytes).

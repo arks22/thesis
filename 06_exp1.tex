@@ -1,6 +1,32 @@
 \chapter{Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}
   \section{実験概要}
   実験1では入力、出力ともに211Åフィルターで得られたデータを利用した。これは 211Åフィルターで撮影された紫外線像が、コロナホールと活動領域といった、二つの太陽円盤上の大規模構造をバランスよく明瞭に表現し、本研究のモデルの効果検証に適していると考えたためである。
+  \section{実験設定}
+    各ハイパーパラメータの設定を表\ref{tab:hyperparameters1}に示す。
+    \begin{table}[h]
+      \centering
+      \begin{tabular}{|c|c|}
+      \hline
+      ハイパーパラメータ & 値 \\
+      \hline\hline
+      バッチサイズ & 4 \\
+      \hline
+      エポック数 & 100 \\
+      \hline
+      学習率 & 0.0005 \\
+      \hline
+      損失関数a & MSE \\
+      \hline
+      カーネルサイズ & (5, 5) \\
+      \hline
+      MAU Cell数 & 16 \\
+      \hline
+      \end{tabular}
+      \caption{実験1でのハイパーパラメータ}
+      \label{tab:hyperparameters1}
+    \end{table}
+
+
   \section{学習の推移}
   \section{実験結果}
     \subsection{全球での評価}

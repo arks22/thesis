@@ -1,41 +1,42 @@
 \relax 
-\@writefile{toc}{\contentsline {chapter}{\numberline {第1章}研究背景}{5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第1章}研究背景}{3}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第2章}動画予測}{7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第2章}動画予測}{5}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}動画予測の定義と定式化}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}動画予測モデル}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}最適化}{8}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}動画予測のための基礎技術}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Convolutional Neural Network (CNN)}{8}}
-\@writefile{toc}{\contentsline {subsubsection}{畳み込み}{9}}
-\@writefile{toc}{\contentsline {subsubsection}{プーリング}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{エンコーダ}{10}}
-\@writefile{toc}{\contentsline {subsubsection}{デコーダ}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Long Short Term Memory (LSTM)}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Attention}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}動画予測フレームワーク}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}ConvLSTM}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{各ゲートの定義}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}PredRNN}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{時空間メモリフロー}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces 左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる。\relax }}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}動画予測の定義と定式化}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}動画予測モデル}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}最適化}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}動画予測のための基礎技術}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Convolutional Neural Network (CNN)}{6}}
+\@writefile{toc}{\contentsline {subsubsection}{畳み込み}{7}}
+\@writefile{toc}{\contentsline {subsubsection}{プーリング}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{エンコーダ}{8}}
+\@writefile{toc}{\contentsline {subsubsection}{デコーダ}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Long Short Term Memory (LSTM)}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Attention}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}動画予測フレームワーク}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}ConvLSTM}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{各ゲートの定義}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}PredRNN}{11}}
+\@writefile{toc}{\contentsline {subsubsection}{時空間メモリフロー}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces 左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる。\relax }}{12}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:predrnn}{{2.1}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{時空間LSTMユニット (ST-LSTM)}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}各ゲート}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Motion-Aware Unit(MAU)}{15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces 左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。\relax }}{16}}
-\newlabel{fig:stlstm}{{2.2}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{アーキテクチャ}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{融合モジュール}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{情報リコールスキーム}{16}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces キャプション\relax }}{17}}
-\newlabel{fig:mau_attention}{{2.3}{17}}
-\@writefile{toc}{\contentsline {subsubsection}{主な実験結果}{17}}
+\newlabel{fig:predrnn}{{2.1}{12}}
+\@writefile{toc}{\contentsline {subsubsection}{時空間LSTMユニット (ST-LSTM)}{12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Motion-Aware Unit(MAU)}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces 左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。\relax }}{14}}
+\newlabel{fig:stlstm}{{2.2}{14}}
+\@writefile{toc}{\contentsline {subsubsection}{アーキテクチャ}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces 左: MAUセルを積み重ねたMAUモデルの構造。オレンジ色の矢印は空間方向のメモリフローを示し、青色の矢印は時間方向のメモリフローを示す。エンコーダ・デコーダ構造は各時間ステップにおいて一回ずつ適用され、情報を効果的に圧縮している。右:MAUセルは、注意（Attention）モジュールと融合（Fusion）モジュールの2つの部分から構成されている。\relax }}{15}}
+\newlabel{fig:mau_attention}{{2.3}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{主な実験結果}{16}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Moving MNISTデータセットにおけるビデオ予測方法の定量的結果（10フレーム→10フレーム）。低いMSEと高いSSIMスコアはより良い視覚的品質を示す。\relax }}{17}}
+\newlabel{mau-mnist-1}{{2.1}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Moving MNISTデータセット（10フレーム→10フレーム）に対する比較。公平な比較のため、すべてのモデルのエンコーダとデコーダは同じ構造をしており、すべてのモデルはMSE損失に基づいてAdamオプティマイザーを用いて訓練されている。\relax }}{17}}
+\newlabel{mau-mnist-2}{{2.2}{17}}
 \citation{pesnell2012solar}
 \citation{lemen2012atmospheric}
 \@writefile{toc}{\contentsline {chapter}{\numberline {第3章}データ}{18}}
@@ -43,56 +44,65 @@
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}SDO / AIA}{18}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}AIA 211Å}{18}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}AIA 193Å}{19}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}AIA 171Å}{19}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces SDO/AIAの211Åフィルターで撮影された太陽全球紫外線像。強調のために紫色に色付けされている。球面の中上部から中下部には明るく輝く活動領域が見られ、左下部に暗くコロナホールが観測できる。\relax }}{19}}
 \newlabel{fig:sample_aia211}{{3.1}{19}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}前処理}{19}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces 各実験でのデータセット\relax }}{20}}
-\newlabel{tab:my_label}{{3.1}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}不正な画像の除去}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces SDO/AIAにより観測された不正な画像の例\relax }}{21}}
-\newlabel{fig:bad_aia_samples}{{3.2}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}AIA 193Å}{19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces SDO/AIAの193Åフィルターで撮影された太陽全球紫外線像。強調のために橙色に色付けされている。\relax }}{20}}
+\newlabel{fig:sample_aia193}{{3.2}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}AIA 171Å}{20}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces SDO/AIAの171Åフィルターで撮影された太陽全球紫外線像。強調のために黄色に色付けされている。193Å、211Åでは観察できない、コロナホールなどの静穏領域のスペクトルも観測できる。\relax }}{21}}
+\newlabel{fig:sample_aia171}{{3.3}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}前処理}{21}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces SDO AIAの171, 193, 211(\r A)の特性\relax }}{22}}
+\newlabel{table:aia_filters_details}{{3.1}{22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}不正な画像の除去}{22}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}スケーリングと正規化}{22}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}データセットの分割}{22}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}{23}}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces 太陽動画データセット作成アルゴリズム\relax }}{23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces SDO/AIAにより観測された不正な画像の例\relax }}{24}}
+\newlabel{fig:bad_aia_samples}{{3.4}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces 正規化されたデータに対する平方根スケーリングの効果。左: 正規化されたデータのヒストグラム。右: 平方根スケーリングを適用したデータのヒストグラム。\relax }}{25}}
+\newlabel{fig:scale_histogram}{{3.5}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}データセットの分割}{25}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces 各実験でのデータセット\relax }}{26}}
+\newlabel{tab:my_label}{{3.2}{26}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}{27}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}実験概要}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}実験設定}{23}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces 実験1でのハイパーパラメータ\relax }}{23}}
-\newlabel{tab:hyperparameters1}{{4.1}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}学習の推移}{24}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}実験結果}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}全球での評価}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{画像類似度}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}経度依存性の評価}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{24}}
-\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{24}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}東側リムから出現する活動領域に対する視覚的評価}{24}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}考察}{24}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力とした紫外線像の全球時系列予測}{25}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}実験概要}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}実験設定}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces 実験1でのハイパーパラメータ\relax }}{27}}
+\newlabel{tab:hyperparameters1}{{4.1}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}学習の推移}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}実験結果}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}全球での評価}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{画像類似度}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}経度依存性の評価}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{28}}
+\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}東側リムから出現する活動領域に対する視覚的評価}{28}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}考察}{28}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力とした紫外線像の全球時系列予測}{29}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}実験概要}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}学習の推移}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}実験結果}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}全球での評価}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{画像類似度}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}経度依存性の評価}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{26}}
-\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}東側リムから出現する活動領域に対する視覚的評価}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}考察}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}実験概要}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}学習の推移}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}実験結果}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}全球での評価}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{画像類似度}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}経度依存性の評価}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{平均輝度とその誤差}{30}}
+\@writefile{toc}{\contentsline {subsubsection}{単純差動回転モデルとの比較}{30}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}東側リムから出現する活動領域に対する視覚的評価}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}考察}{30}}
 \bibdata{references}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}まとめ}{27}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第6章}まとめ}{31}}
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
 \bibcite{pesnell2012solar}{1}
 \bibcite{lemen2012atmospheric}{2}
 \bibstyle{junsrt}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{28}}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{32}}

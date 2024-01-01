@@ -1,64 +1,61 @@
-\contentsline {chapter}{\numberline {第1章}研究背景}{5}
-\contentsline {chapter}{\numberline {第2章}動画予測}{7}
-\contentsline {section}{\numberline {2.1}動画予測の定義と定式化}{7}
-\contentsline {subsection}{\numberline {2.1.1}動画予測モデル}{7}
-\contentsline {subsection}{\numberline {2.1.2}最適化}{8}
-\contentsline {section}{\numberline {2.2}動画予測のための基礎技術}{8}
-\contentsline {subsection}{\numberline {2.2.1}Convolutional Neural Network (CNN)}{8}
-\contentsline {subsubsection}{畳み込み}{9}
-\contentsline {subsubsection}{プーリング}{9}
-\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder}{10}
-\contentsline {subsubsection}{エンコーダ}{10}
-\contentsline {subsubsection}{デコーダ}{10}
-\contentsline {subsection}{\numberline {2.2.3}Long Short Term Memory (LSTM)}{10}
-\contentsline {subsection}{\numberline {2.2.4}Attention}{12}
-\contentsline {section}{\numberline {2.3}動画予測フレームワーク}{12}
-\contentsline {subsection}{\numberline {2.3.1}ConvLSTM}{13}
-\contentsline {subsubsection}{各ゲートの定義}{13}
-\contentsline {subsection}{\numberline {2.3.2}PredRNN}{13}
-\contentsline {subsubsection}{時空間メモリフロー}{14}
-\contentsline {subsubsection}{時空間LSTMユニット (ST-LSTM)}{14}
-\contentsline {subsection}{\numberline {2.3.3}各ゲート}{15}
-\contentsline {subsection}{\numberline {2.3.4}Motion-Aware Unit(MAU)}{15}
-\contentsline {subsubsection}{アーキテクチャ}{16}
-\contentsline {subsubsection}{融合モジュール}{16}
-\contentsline {subsubsection}{情報リコールスキーム}{16}
-\contentsline {subsubsection}{主な実験結果}{17}
+\contentsline {chapter}{\numberline {第1章}研究背景}{3}
+\contentsline {chapter}{\numberline {第2章}動画予測}{5}
+\contentsline {section}{\numberline {2.1}動画予測の定義と定式化}{5}
+\contentsline {subsection}{\numberline {2.1.1}動画予測モデル}{5}
+\contentsline {subsection}{\numberline {2.1.2}最適化}{6}
+\contentsline {section}{\numberline {2.2}動画予測のための基礎技術}{6}
+\contentsline {subsection}{\numberline {2.2.1}Convolutional Neural Network (CNN)}{6}
+\contentsline {subsubsection}{畳み込み}{7}
+\contentsline {subsubsection}{プーリング}{7}
+\contentsline {subsection}{\numberline {2.2.2}Encoder-Decoder}{8}
+\contentsline {subsubsection}{エンコーダ}{8}
+\contentsline {subsubsection}{デコーダ}{8}
+\contentsline {subsection}{\numberline {2.2.3}Long Short Term Memory (LSTM)}{8}
+\contentsline {subsection}{\numberline {2.2.4}Attention}{10}
+\contentsline {section}{\numberline {2.3}動画予測フレームワーク}{10}
+\contentsline {subsection}{\numberline {2.3.1}ConvLSTM}{11}
+\contentsline {subsubsection}{各ゲートの定義}{11}
+\contentsline {subsection}{\numberline {2.3.2}PredRNN}{11}
+\contentsline {subsubsection}{時空間メモリフロー}{12}
+\contentsline {subsubsection}{時空間LSTMユニット (ST-LSTM)}{12}
+\contentsline {subsection}{\numberline {2.3.3}Motion-Aware Unit(MAU)}{13}
+\contentsline {subsubsection}{アーキテクチャ}{14}
+\contentsline {subsubsection}{主な実験結果}{16}
 \contentsline {chapter}{\numberline {第3章}データ}{18}
 \contentsline {section}{\numberline {3.1}SDO / AIA}{18}
 \contentsline {subsection}{\numberline {3.1.1}AIA 211Å}{18}
 \contentsline {subsection}{\numberline {3.1.2}AIA 193Å}{19}
-\contentsline {subsection}{\numberline {3.1.3}AIA 171Å}{19}
-\contentsline {section}{\numberline {3.2}前処理}{19}
-\contentsline {subsection}{\numberline {3.2.1}不正な画像の除去}{20}
+\contentsline {subsection}{\numberline {3.1.3}AIA 171Å}{20}
+\contentsline {section}{\numberline {3.2}前処理}{21}
+\contentsline {subsection}{\numberline {3.2.1}不正な画像の除去}{22}
 \contentsline {subsection}{\numberline {3.2.2}スケーリングと正規化}{22}
-\contentsline {subsection}{\numberline {3.2.3}データセットの分割}{22}
-\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}{23}
-\contentsline {section}{\numberline {4.1}実験概要}{23}
-\contentsline {section}{\numberline {4.2}実験設定}{23}
-\contentsline {section}{\numberline {4.3}学習の推移}{24}
-\contentsline {section}{\numberline {4.4}実験結果}{24}
-\contentsline {subsection}{\numberline {4.4.1}全球での評価}{24}
-\contentsline {subsubsection}{平均輝度とその誤差}{24}
-\contentsline {subsubsection}{画像類似度}{24}
-\contentsline {subsubsection}{単純差動回転モデルとの比較}{24}
-\contentsline {subsection}{\numberline {4.4.2}経度依存性の評価}{24}
-\contentsline {subsubsection}{平均輝度とその誤差}{24}
-\contentsline {subsubsection}{単純差動回転モデルとの比較}{24}
-\contentsline {subsection}{\numberline {4.4.3}東側リムから出現する活動領域に対する視覚的評価}{24}
-\contentsline {section}{\numberline {4.5}考察}{24}
-\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力とした紫外線像の全球時系列予測}{25}
-\contentsline {section}{\numberline {5.1}実験概要}{25}
-\contentsline {section}{\numberline {5.2}学習の推移}{26}
-\contentsline {section}{\numberline {5.3}実験結果}{26}
-\contentsline {subsection}{\numberline {5.3.1}全球での評価}{26}
-\contentsline {subsubsection}{平均輝度とその誤差}{26}
-\contentsline {subsubsection}{画像類似度}{26}
-\contentsline {subsubsection}{単純差動回転モデルとの比較}{26}
-\contentsline {subsection}{\numberline {5.3.2}経度依存性の評価}{26}
-\contentsline {subsubsection}{平均輝度とその誤差}{26}
-\contentsline {subsubsection}{単純差動回転モデルとの比較}{26}
-\contentsline {subsection}{\numberline {5.3.3}東側リムから出現する活動領域に対する視覚的評価}{26}
-\contentsline {section}{\numberline {5.4}考察}{26}
-\contentsline {chapter}{\numberline {第6章}まとめ}{27}
-\contentsline {chapter}{参考文献}{28}
+\contentsline {subsection}{\numberline {3.2.3}データセットの分割}{25}
+\contentsline {chapter}{\numberline {第4章}Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}{27}
+\contentsline {section}{\numberline {4.1}実験概要}{27}
+\contentsline {section}{\numberline {4.2}実験設定}{27}
+\contentsline {section}{\numberline {4.3}学習の推移}{28}
+\contentsline {section}{\numberline {4.4}実験結果}{28}
+\contentsline {subsection}{\numberline {4.4.1}全球での評価}{28}
+\contentsline {subsubsection}{平均輝度とその誤差}{28}
+\contentsline {subsubsection}{画像類似度}{28}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{28}
+\contentsline {subsection}{\numberline {4.4.2}経度依存性の評価}{28}
+\contentsline {subsubsection}{平均輝度とその誤差}{28}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{28}
+\contentsline {subsection}{\numberline {4.4.3}東側リムから出現する活動領域に対する視覚的評価}{28}
+\contentsline {section}{\numberline {4.5}考察}{28}
+\contentsline {chapter}{\numberline {第5章}Motion Aware Unitを用いた3波長を入力とした紫外線像の全球時系列予測}{29}
+\contentsline {section}{\numberline {5.1}実験概要}{29}
+\contentsline {section}{\numberline {5.2}学習の推移}{30}
+\contentsline {section}{\numberline {5.3}実験結果}{30}
+\contentsline {subsection}{\numberline {5.3.1}全球での評価}{30}
+\contentsline {subsubsection}{平均輝度とその誤差}{30}
+\contentsline {subsubsection}{画像類似度}{30}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{30}
+\contentsline {subsection}{\numberline {5.3.2}経度依存性の評価}{30}
+\contentsline {subsubsection}{平均輝度とその誤差}{30}
+\contentsline {subsubsection}{単純差動回転モデルとの比較}{30}
+\contentsline {subsection}{\numberline {5.3.3}東側リムから出現する活動領域に対する視覚的評価}{30}
+\contentsline {section}{\numberline {5.4}考察}{30}
+\contentsline {chapter}{\numberline {第6章}まとめ}{31}
+\contentsline {chapter}{参考文献}{32}

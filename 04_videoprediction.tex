@@ -58,7 +58,7 @@
         この操作の様子を図\ref{fig:convolution}に示す。
         \begin{figure}[h]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{畳み込み操作の様子。左: 入力データ。中央: カーネル。右: 畳み込み操作により生成された特徴マップ。}
           \label{fig:convolution}
         \end{figure}
@@ -83,7 +83,7 @@
         Max Poolingの様子を図\ref{fig:maxpooling}に示す。
         \begin{figure}[h]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{最大値プーリングの様子。左: 入力データ。右: 最大値プーリングにより生成された特徴マップ。}
           \label{fig:maxpooling}
         \end{figure}
@@ -116,11 +116,24 @@
         動画予測の再帰ネットワーク内では、エンコーダにより圧縮された行列が扱われるため、そのままでは出力には不適切である。デコーダはそのような圧縮された表現を元の次元に展開し、出力に適した形式に変換する。
 
     
-    \subsection{Long Short Term Memory (LSTM)}
     
+    \subsection{Recurrent Neural Network (RNN)}
 
-    リカレントニューラルネットワーク（RNN）は、時系列データや自然言語などのシーケンシャルな情報を扱うために開発されたニューラルネットワークの一種である。RNNの特徴は、過去の情報を隠れ状態として保持し、それを利用して次の出力を生成する点にある。しかし、RNNは長期的な依存関係を捉えることに困難を抱えていた。この問題は「勾配消失問題」として知られ、ネットワークが深くなるほど、またはシーケンスが長くなるほど顕著になる。勾配消失問題により、RNNは過去の情報を長期間保持し活用することが困難になる。
+    リカレントニューラルネットワーク（RNN）は、時系列データや自然言語などのシーケンシャルな情報を扱うために開発されたニューラルネットワークの一種である。
+    RNNの特徴は、過去の情報を隠れ状態として保持し、それを利用して次の出力を生成する点にある。このような再帰的な構造を持つことにより、RNNは時系列性をもつデータを扱うことが可能である。
+    RNNの構造を図\ref{fig:rnn}に示す。
+    \begin{figure}[htpb]
+      \centering
+      \includegraphics[width=\textwidth]{figures/mau.png}
+      \caption{RNNの構造。}
+      \label{fig:rnn}
+    \end{figure}
+
+    しかし、RNNは長期的な依存関係を捉えることに困難を抱えていた。
+    この問題は「勾配消失問題」として知られる。これは、RNNの活性化関数(\(tanh\)やシグモイド関数)の出力が各ステップで乗算されることにより、ネットワークが深くなるほど、勾配が指数関数的に消失してしまうことに起因する。
+    勾配消失問題により、RNNは過去の情報を長期間保持し活用することが困難になる。
     
+    \subsection{Long Short Term Memory (LSTM)}
     この問題を解決するために開発されたのが、長短期記憶（LSTM）である。LSTMは、RNNの基本的な枠組みを保ちつつ、特定の情報を長期間記憶する能力を強化した。LSTMの主要な特徴は、セル状態と呼ばれる内部メカニズムであり、これにより長期的な情報を保持することが可能となる。
     
     LSTMのユニークな構造は以下の三つのゲートから成る：忘却ゲート、入力ゲート、出力ゲート。
@@ -146,7 +159,7 @@
     LSTMの構造の概念図を図\ref{fig:lstm}に示す。
     \begin{figure}[h]
       \centering
-      \includegraphics[width=150mm]{figures/mau.png}
+      \includegraphics[width=\textwidth]{figures/mau.png}
       \caption{LSTMの構造。}
       \label{fig:lstm}
     \end{figure}
@@ -170,7 +183,6 @@
     \end{equation}
 
     ここで、\( Q \)、\( K \)、\( V \) はそれぞれクエリ、キー、バリューの行列、\( d_k \) はキーの次元数を表す。softmax関数は、キーとクエリ間の類似性を確率的な重みに変換する。このプロセスにより、アテンションメカニズムは、重要な情報に「注意」を集中させ、関連性の低い情報を無視することができる。
-
 
 
 
@@ -201,7 +213,7 @@
       ConvLSTMのユニットの概念図を図\ref{fig:convlstm}に示す。
       \begin{figure}[h]
         \centering
-        \includegraphics[width=150mm]{figures/mau.png}
+        \includegraphics[width=\textwidth]{figures/mau.png}
         \caption{ConvLSTMの構造。}
         \label{fig:convlstm}
       \end{figure}
@@ -221,7 +233,7 @@
           
         \begin{figure}[htbp]
           \begin{center}
-            \includegraphics[width=150mm]{figures/videoprediction/predrnn_memory.png}
+            \includegraphics[width=\textwidth]{figures/videoprediction/predrnn_memory.png}
             \caption{左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる。}
             \label{fig:predrnn}
           \end{center}

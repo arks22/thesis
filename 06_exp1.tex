@@ -1,20 +1,20 @@
-\chapter{Motion Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}
+\chapter{Motion-Aware Unitを用いた1波長を入力とした紫外線像の全球時系列予測}
   \section{実験概要}
   この実験では入力、出力ともに211Åフィルターで得られたデータを利用した。
   これは 211Åフィルターで撮影された紫外線像が、コロナホールと活動領域といった、二つの太陽円盤上の大規模構造をバランスよく明瞭に表現し、本研究のモデルの効果検証に適していると考えたためである。
   モデルにはMotion-Aware Unitを用い、1波長のデータを入力として、全球の時系列予測を行った。
   この実験の概要を図\ref{fig:exp1_overview}にて視覚的に表現する。
 
-  \begin{figure}[ht]
+  \begin{figure}[htpb]
     \centering
-    \includegraphics[width=150mm]{figures/mau.png}
+    \includegraphics[width=\textwidth]{figures/mau.png}
     \caption{実験の概念図。モデルにはMotion-Aware Unitを用い、1波長のデータを入力として、全球の時系列予測を行った。}
     \label{fig:exp1_overview}
   \end{figure}
 
   \section{実験設定}
     各ハイパーパラメータの設定を表\ref{tab:exp1_hyperparameters}に示す。バッチサイズは実験的に決定し、最も安定的に最終的に良好な精度を達成できた値を採用した。また、エポック数は100とした。学習率は0.0005とした。MAU Cell数は、Chang et al. (2019) \cite{chang2021mau} の実験設定を参考に、16とした。
-    \begin{table}[h]
+    \begin{table}[htpb]
       \centering
       \begin{tabular}{lc}
       \hline
@@ -26,42 +26,52 @@
       \hline
       学習率 & 0.0005 \\
       \hline
-      損失関数a & MSE \\
+      損失関数 & MSE \\
+      \hline
+      チャンネル & 1 \\
       \hline
       カーネルサイズ & (5, 5) \\
       \hline
       MAU Cell数 & 16 \\
       \hline
       \end{tabular}
-      \caption{実験1でのハイパーパラメータ}
+      \caption{本実験でのハイパーパラメータ設定}
       \label{tab:exp1_hyperparameters}
     \end{table}
-
 
   \section{学習の推移}
   学習は図\ref{fig:exp1_learn_progress}のように推移した。学習の初期段階では、学習データに対する損失関数の値が急激に減少しているが、学習が進むにつれて収束に向かって緩やかに減少していることがわかる。
   また、学習損失、検証損失ともに、安定的に減少していることがわかる。
   学習にはNVIDIA RTX A6000を用い、完了までに約14時間を要した。
-  \begin{figure}[h]
+  \begin{figure}[htpb]
     \centering
-    \includegraphics[width=150mm]{figures/mau.png}
-    \caption{この実験での、学習データ、検証データでの損失関数の推移。どちらも安定的に減少している。}
+    \includegraphics[width=\textwidth]{figures/mau.png}
+    \caption{本実験での、学習データ、検証データでの損失関数の推移。どちらも安定的に減少している。}
     \label{fig:exp1_learn_progress}
   \end{figure}
 
   \section{実験結果}
-    動画予測の精度を評価するために、太陽の輝度強度の再現性を主な指標とした。
+    図\ref{fig:exp1_gt}および図\ref{fig:exp1_pd}に、この実験での出力例を示す。
+    これは学習データに含まれない期間のテストデータである。
+    \begin{figure}[htpb]
+      \centering
+      \vspace*{-2cm} % 上の余白を調整
+      \includegraphics[width=0.95\textwidth]{figures/exp1/gt.png}
+      \caption{実際の観測画像の例。2022年2月18日0時から2022年2月22日20時の期間から4時間毎にサンプリングされている。このt=0からt=11までをモデルに入力データとして渡している。モデルはその入力データを元に、t=12からt=23の12枚の画像を予測する。t=12以降の実際の観測画像はモデルに渡されない。}
+      \vspace{-1cm} % 下の余白を調整
+      \label{fig:exp1_gt}
+    \end{figure}
+    \begin{figure}[htpb]
+      \centering
+      \includegraphics[width=0.95\textwidth]{figures/exp1/pd.png}
+      \caption{MAUによる予測画像。対応するタイムステップtの観測画像(図\ref{fig:exp1_gt})と比較することでモデルの再現度を視覚的に評価することができる。大規模な構造は概ね実際の観測画像と合致している。モデルの特性により、時間経過とともに少しずつ予測が不安定になり、ぼやけた見た目になる。}
+      \label{fig:exp1_pd}
+    \end{figure}
+    モデルの出力は、視覚的には実際の観測画像と概ね合致しており、特に自転による大規模構造の移動といった顕著な時間的特徴は再現できていることがわかる。
+
+    動画予測の精度を評価するために、太陽の輝度強度の再現性を定量的、またまたは視覚的に評価する。
     これは、Nishizuka et al. (2018) \cite{nishizuka2018deep} や〜〜〜などの、太陽画像から太陽イベントを予測する先行研究では、その画像中の輝度強度を主要な特徴量として採用していることに基づく。
     この輝度強度の再現性の評価を、さまざまな条件下で行った。はじめに全球での評価を行い、次に経度依存性の評価を行った。最後に、東側リムから出現する活動領域に対する視覚的評価を行った。
-
-    図\ref{fig:exp1_out}に、この実験での出力例を示す。モデルの出力は、視覚的にも実際の観測画像と概ね合致しており、特に自転による大規模構造の移動といった顕著な時間的特徴をとらえていることを明確に確認できる。
-    
-    \begin{figure}[h]
-      \centering
-      \includegraphics[width=150mm]{figures/mau.png}
-      \caption{}
-      \label{fig:exp1_out}
-    \end{figure}
 
     \subsection{全球での評価}
       はじめに全球での評価を行った。
@@ -77,36 +87,30 @@
         平均輝度は全球(画像中の太陽の球面)に対してのみ行い、画像中の背景や外縁部からはみ出すコロナなどはその計算に含まれない。
         背景から全球に対して切り出される部分は、図\ref{fig:exp1_fulldisk_crop}に示されている。
         この全球の定義および計算は、取得したFITSファイルのヘッダーに記載される太陽の中心および半径に基づいている。
-
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
-          \caption{}
+          \includegraphics[width=0.7\textwidth]{figures/exp1/crop_map.png}
+          \caption{生成した画像から全球部分のみ切り出した画像の例。この部分にのみ平均輝度を計算する。}
           \label{fig:exp1_fulldisk_crop}
         \end{figure}
 
         モデルの出力の全球での平均輝度と、実際の観測画像との誤差の推移を図\ref{fig:exp1_mean_intensity_line}に示す。
         これは、50のテストセットに対して、各テストセットに含まれる各画像の全球での平均輝度を計算し、その時間ステップごとの平均値を取ったものである。
-
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_mean_intensity_line}
         \end{figure}
         
         さらに、入力シークエンスの最後から48時間後の画像の全球での平均輝度と、実際の観測画像との差異を観察する。その散布図\ref{fig:exp1_mean_intensity_scatter}に示す。
         このタイムステップは、出力の最後のタイムステップであり、最も不確定性の高い予測である。
-
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_mean_intensity_scatter}
         \end{figure}
-
-
-
 
       \subsubsection{画像類似度}
         画像内での構造的再現度とその時間的変化を評価するために、モデルの出力と対応する時間ステップの実際の観測画像の間のSSIMを計算した。
@@ -126,33 +130,44 @@
 
         SSIMの推移を図\ref{fig:exp1_ssim_line}に示す。画像類似度は、全球での平均輝度と同様に、全球に対してのみ行い、画像中の背景や外縁部からはみ出すコロナなどはその計算に含まれない。
 
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_ssim_line}
         \end{figure}
-
-      \subsubsection{単純差動回転モデルとの比較}
-        モデルの予測性能をさらに詳細に評価するために、単純差動回転モデルとの比較を行った。
-        目視や、平均輝度、SSIMの推移から、モデルの出力は実際の観測画像と概ね合致しており、特に自転による構造的変化などの主要な時間的特徴を再現できていることがわかった。
-        しかし、自転は比較的予測しやすい物理現象であり、シンプルなシミュレーションモデルでも再現することができる。
-        ここでは、Sunpyによって提供される単純差動回転シミュレーションモデルによる出力と、我々のモデルの出力の再現精度の比較を行った。
-        これにより、モデルが単に自転を予測しているのではなく、より複雑な時間的変化を予測できているかを確認した。
         
-        比較は、単純差動回転モデルによるシミュレーションと、実際の観測画像との間の平均輝度の誤差を計算し、それを前述の動画予測によるものと比較することで行った。
-        実際の観測画像と、単純差動回転モデルによるシミュレーションと、動画予測モデルによる予測の例を図\ref{fig:exp1_sdr_example}に示す。
-        \begin{figure}[h]
+      \subsubsection{単純差動回転モデルとの比較}
+        モデルの予測性能をさらに詳細に評価するために、シンプルな差動回転モデルとの比較を行った。
+        目視や、平均輝度、SSIMの推移から、モデルの出力は実際の観測画像と概ね合致しており、特に自転による構造的変化などの主要な時間的特徴を再現できていることがわかった。
+        ここでは、単純差動回転シミュレーションモデルによる出力と、我々のモデルの出力の再現精度の比較を行った。
+        これにより、モデルが単に自転を予測しているのではなく、より複雑な時間的変化を予測できているかを検証した。
+
+        太陽は自転するが、その実体は流体であるため、緯度によって自転速度が異なる。極付近の自転周期は約35日であるが、赤道付近では約25日である。この現象を差動回転と呼ぶ。
+        差動回転をシミュレーションする研究は盛んに行われているが、ここでは回転速度を緯度依存としてモデル化するHoward et al. (1990) \cite{howard1990solar}の差動回転モデルを用いた。
+        このモデルは、Heliographic緯度\(\theta\)に対する回転速度\(\omega(\theta)\)を以下のように定義する:
+        
+        \begin{align}
+          \omega(\theta) &= A + B \sin^{2}(\theta) + C \sin^{4}(\theta) \\
+          \text{where} \quad A &= 2.894 \, \mu\text{rad/s}, \\
+          B &= -0.428 \, \mu\text{rad/s}, \\
+          C &= -0.370 \, \mu\text{rad/s}
+        \end{align}
+        このモデルはSunpyに実装されており、\textit{physics.differential\_rotation}というモジュールとして提供されている。
+        このモジュールによる画像の生成は、全球の各ピクセルに対して、そのピクセルの緯度に対する回転速度を計算し、その速度で西に向かって各ピクセルを移動させることで行われる。
+        この単純差動回転モデルによるシミュレーションの例を図\ref{fig:exp1_sdr_example}に示す。
+        比較は、単純差動回転モデルによるシミュレーションと、実際の観測画像との間の平均輝度の絶対誤差を計算し、それを前述の動画予測によるものと比較することで行った。
+        この誤差の推移を図\ref{fig:exp1_sdr_line}に示す。
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_sdr_example}
         \end{figure}
 
-        この誤差の推移を図\ref{fig:exp1_sdr_line}に示す。
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_sdr_line}
         \end{figure}
@@ -160,12 +175,13 @@
         さらに、出力シークエンスの最後のタイムステップにおいて、単純差動回転モデルによるシミュレーションと、実際の観測画像との差異を観察し、動画予測モデルによる出力と比較した。
         その散布図\ref{fig:exp1_sdr_scatter}に示す。
         
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_sdr_scatter}
         \end{figure}
+        
 
     \subsection{経度依存性の評価}
         さらに、予測性能が経度ごとにばらつきがあるかを確認するために、経度ごと予測の再現度を評価した。
@@ -173,9 +189,9 @@
         分割の概念図を図\ref{fig:exp1_longitude_division}に示す。
         評価指標には、平均輝度の誤差と、その単純差動回転モデルとの比較を用いた。
         
-        \begin{figure}[h]
+        \begin{figure}[htpb]
           \centering
-          \includegraphics[width=150mm]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/mau.png}
           \caption{}
           \label{fig:exp1_longitude_division}
         \end{figure}
@@ -192,18 +208,18 @@
 
           このように計算された誤差率の時間推移を図\ref{fig:exp1_mean_intensity_longitude_line}に示す。
           
-          \begin{figure}[h]
+          \begin{figure}[htpb]
             \centering
-            \includegraphics[width=150mm]{figures/mau.png}
+            \includegraphics[width=\textwidth]{figures/mau.png}
             \caption{}
             \label{fig:exp1_mean_intensity_longitude_line}
           \end{figure}
           
           さらに、全球での評価と同様に、出力シークエンスの最後のタイムステップにおいて、動画予測モデルの出力から計算される経度ごとの平均輝度と、実際の観測画像での経度ごとの平均輝度をプロットした散布図を図\ref{fig:exp1_mean_intensity_longitude_scatter}に示す。
           
-          \begin{figure}[h]
+          \begin{figure}[htpb]
             \centering
-            \includegraphics[width=150mm]{figures/mau.png}
+            \includegraphics[width=\textwidth]{figures/mau.png}
             \caption{}
             \label{fig:exp1_mean_intensity_longitude_scatter}
           \end{figure}
@@ -212,7 +228,7 @@
           全球での場合と同様に、経度ごとの比較でも単純差動回転モデルとの比較を行った。その時間推移を図\ref{fig:exp1_sdr_longitude_line}に示す。
           \begin{figure}[htbp]
             \centering
-            \includegraphics[width=150mm]{figures/mau.png}
+            \includegraphics[width=\textwidth]{figures/mau.png}
             \caption{}
             \label{fig:exp1_sdr_longitude_line}
           \end{figure}
@@ -221,14 +237,14 @@
           その散布図を図\ref{fig:exp1_sdr_longitude_scatter}に示す。
           \begin{figure}[htbp]
             \centering
-            \includegraphics[width=150mm]{figures/mau.png}
+            \includegraphics[width=\textwidth]{figures/mau.png}
             \caption{}
             \label{fig:exp1_sdr_longitude_scatter}
           \end{figure}
     
     \subsection{東側外縁部から出現する活動領域に対する視覚的評価}
       ここまでで、作成した動画予測モデルは、全球での平均輝度や、経度ごとの平均輝度といった定量的な評価において、実際の観測画像を正確に再現できていることを確認した。
-      既存のシンプルなシミュレーションモデルとの比較でも、平均輝度の評価では、動画予測モデルの優位性を確認できた。
+      既存のシンプルなシミュレーションモデルとの比較でも、平均輝度の評価においては、動画予測モデルの優位性を確認できた。
 
       動画予測モデルのシミュレーションモデルに対するさらなる独自の特徴として、望遠鏡の視野に入っていない太陽の球面を生成することができる点が挙げられる。
       Sunpyによって提供される差動回転シミュレーションモデル\textit{physics.defferential\_rotation}は、入力された画像の全球面の各ピクセルに対して差動回転を適用することで画像を生成する。

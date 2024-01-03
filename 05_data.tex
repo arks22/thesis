@@ -20,7 +20,7 @@ AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡�
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/latest_256_0211.jpg}
+        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0211.jpg}
         \caption{SDO/AIAの211Åフィルターで撮影された太陽全球紫外線像。強調のために紫色に色付けされている。球面の中上部から中下部には明るく輝く活動領域が見られ、左下部に暗くコロナホールが観測できる。}
         \label{fig:sample_aia211}
     \end{figure}
@@ -32,7 +32,7 @@ AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡�
     
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/latest_256_0193.jpg}
+        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0193.jpg}
         \caption{SDO/AIAの193Åフィルターで撮影された太陽全球紫外線像。強調のために橙色に色付けされている。}
         \label{fig:sample_aia193}
     \end{figure}
@@ -44,7 +44,7 @@ AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡�
     
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/latest_256_0171.jpg}
+        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0171.jpg}
         \caption{SDO/AIAの171Åフィルターで撮影された太陽全球紫外線像。強調のために黄色に色付けされている。193Å、211Åでは観察できない、コロナホールなどの静穏領域のスペクトルも観測できる。}
         \label{fig:sample_aia171}
     \end{figure}
@@ -77,7 +77,7 @@ AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡�
 このデータセットは第24太陽活動周期の初期から、第25周期の初期までの観測データを網羅している。この時間範囲には、太陽活動の活発性が高いフェーズと低いフェーズの両方が含まれている。従って、このデータセットは太陽活動の活発性に依存しない可能性が高く、その汎化能力に対する期待が一定程度裏付けられる。
 
 \begin{algorithm}
-    \caption{太陽動画データセット作成アルゴリズム}
+    \caption{データセット作成アルゴリズム}
     \begin{algorithmic}[1]
     \Procedure{CreateSolarDataset}{}
         \For{each wavelength in wavelengths}
@@ -131,16 +131,16 @@ SDO/AIA望遠鏡で撮影された全球画像には、露光時間が他の画�
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/bad_sample0.png}
+        \includegraphics[width=\textwidth]{figures/data/bad_sample0.png}
         \caption{短い露光時間により、極端に暗い画像。}
     \end {subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/bad_sample1.jpg}
+        \includegraphics[width=\textwidth]{figures/data/bad_sample1.jpg}
         \caption{太陽が画像の中心にない画像。}
     \end {subfigure}
     \begin{subfigure}[b]{0.48\textwidth}
-        \includegraphics[width=\textwidth]{figures/bad_sample2.jpg}
+        \includegraphics[width=\textwidth]{figures/data/bad_sample2.jpg}
         \caption{衛星が回転しており、正しい角度で太陽が撮影されていない画像。活動領域の少ない左下部と右上部が極である。}
     \end {subfigure}
     \hfill
@@ -154,54 +154,58 @@ SDO/AIA望遠鏡で撮影された全球画像には、露光時間が他の画�
 データの除去には、FITSファイルのヘッダーに記録された各キーワードの値に対して閾値を設定して判定したのち、numpyによる輪郭検出を用いた月蝕判定関数により不正な画像を排除した。
 
 \subsection{スケーリングと正規化}
-太陽動画データセットの前処理として、以下のステップを実施する。
+    太陽動画データセットの前処理として、以下のステップを実施する。
 
-1. \textbf{正規化}: クリッピング処理されたデータを0から1の範囲に正規化する。ここで、ノイズによる負の値を削除し、極端に大きい外れ値の影響を削減するために、画像内の全ピクセル値に対して最小値を0、最大値を10000に設定した:
-   \begin{equation}
-   I_{normalized}(x, y) = \frac{min(max(I(x,y), 0), 10000)}{10000}
-   \end{equation}
+    1. \textbf{正規化}: クリッピング処理されたデータを0から1の範囲に正規化する。ここで、ノイズによる負の値を削除し、極端に大きい外れ値の影響を削減するために、画像内の全ピクセル値に対して最小値を0、最大値を10000に設定した:
+       \begin{equation}
+       I_{normalized}(x, y) = \frac{min(max(I(x,y), 0), 10000)}{10000}
+       \end{equation}
 
-2. \textbf{平方根スケーリング}: ダイナミックレンジの広さに対応するために、正規化されたデータに平方根スケーリングを適用する。この過程は以下の式で示される。図のヒストグラムに示すように、スケーリングが適用されていないデータは、下位5\%程度の範囲に極端に輝度が集中している。平方根スケーリングを適用することで、輝度間の相対的特徴を犠牲にせずに、極端な差を緩和することができる。
-   \begin{equation}
-   I_{scaled}(x, y) = \sqrt{I_{normalized}(x, y)}
-   \end{equation}
+    2. \textbf{平方根スケーリング}: ダイナミックレンジの広さに対応するために、正規化されたデータに平方根スケーリングを適用する。この過程は以下の式で示される。
+    図のヒストグラムに示すように、スケーリングが適用されていないデータは、下位5\%程度の範囲に極端に輝度が集中している。平方根スケーリングを適用することで、輝度間の相対的特徴を犠牲にせずに、極端な差を緩和することができる。
+       \begin{equation}
+       I_{scaled}(x, y) = \sqrt{I_{normalized}(x, y)}
+       \end{equation}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/mau.png}
-    \caption{正規化されたデータに対する平方根スケーリングの効果。左: 正規化されたデータのヒストグラム。右: 平方根スケーリングを適用したデータのヒストグラム。}
-    \label{fig:scale_histogram}
-\end{figure}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=150mm]{figures/mau.png}
+        \caption{ある画像での正規化されたデータに対する平方根スケーリングの効果。左: 正規化されたデータのヒストグラム。右: 平方根スケーリングを適用したデータのヒストグラム。}
+        \label{fig:scale_histogram}
+    \end{figure}
 
-3. \textbf{リサイズ}: 効率的な処理のために、4192px x 4192px の画像を512px x 512pxの解像度にリサイズした。この処理は、画像の空間解像度を低下させるが、太陽全球の大規模な構造を捉えるには十分である。
-
+    3. \textbf{リサイズ}: 効率的な処理のために、$4192\text{px} \times 4192\text{px}$ の画像を$512\text{px} \times 512\text{px}$の解像度にリサイズした。この処理は、画像の空間解像度を低下させるが、太陽全球の大規模な構造を捉えるには十分である。
 
 
 \subsection{データセットの分割}
 
 このようにして作成されたデータセットは、約1000セットになり、これを学習用データセットに約800セット、検証データセットに50セット,テストデータセットに50セットというように分割した。
+データセット1単位は、24枚の画像から構成される。
+
+実験1では、211Åフィルターの画像のみを用いた。実験2では、171Å、193Å、211Åの3つのフィルターの画像を用いた。
+最終的な分割とデータセットの概要を表\ref{tab:dataset}に示す。
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{l|c|c}
     \hline
     実験 & 実験1 & 実験2 \\
     \hline\hline
     入力波長 & 211Å & 171Å,193Å,211Å \\
     \hline
-    出力波長 & \multicolumn{2}{c|}{211Å} \\
+    出力波長 & \multicolumn{2}{c}{211Å} \\
     \hline
     総枚数 & 22000 & 66000 \\
     \hline
-    セット数 & \multicolumn{2}{c|}{232} \\
+    セット数 & \multicolumn{2}{c}{約1000} \\
     \hline
-    セットごとの枚数 & \multicolumn{2}{c|}{入力12 → 出力12} \\
+    セットごとの枚数 & \multicolumn{2}{c}{入力12 → 出力12} \\
     \hline
-    解像度 & \multicolumn{2}{c|}{512 * 512} \\
+    解像度 & \multicolumn{2}{c}{512 * 512} \\
     \hline
     \end{tabular}
     \caption{各実験でのデータセット}
-    \label{tab:my_label}
+    \label{tab:dataset}
 \end{table}
 
 

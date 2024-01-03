@@ -54,6 +54,14 @@
         \begin{equation}
           S(i, j) = (I * K)(i, j) = \sum_{m}\sum_{n}I(i+m, j+n)K(m, n)
         \end{equation}
+        
+        この操作の様子を図\ref{fig:convolution}に示す。
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=150mm]{figures/mau.png}
+          \caption{畳み込み操作の様子。左: 入力データ。中央: カーネル。右: 畳み込み操作により生成された特徴マップ。}
+          \label{fig:convolution}
+        \end{figure}
 
         この操作は、入力データの全域にわたって繰り返され、最終的に特徴マップと呼ばれる新しい行列が生成される。特徴マップには、その入力データにおける特定のパターンや構造が抽出されている。
       
@@ -71,6 +79,14 @@
         \begin{equation}
           P(i, j) = \max_{m}\max_{n}F(i+m, j+n)
         \end{equation}
+        
+        Max Poolingの様子を図\ref{fig:maxpooling}に示す。
+        \begin{figure}[h]
+          \centering
+          \includegraphics[width=150mm]{figures/mau.png}
+          \caption{最大値プーリングの様子。左: 入力データ。右: 最大値プーリングにより生成された特徴マップ。}
+          \label{fig:maxpooling}
+        \end{figure}
 
         \item \textbf{平均値プーリング（Average Pooling）}：平均プーリングは、各領域の平均値を計算する。
         これにより、特徴マップの全体的な特性をより平滑化し、より均一な特徴表現を提供することが可能である。
@@ -81,6 +97,7 @@
         \end{equation}
         
         \end{itemize}
+      
 
     \subsection{Encoder-Decoder}
       エンコーダ・デコーダ構造は画像処理において広く用いられ、特にU-Netのようなアーキテクチャが代表的である。
@@ -126,6 +143,13 @@
     \end{align}
     
     ここで、\( W \) と \( b \) はそれぞれ重みとバイアスを表し、\( \sigma \) はシグモイド活性化関数、\( \tanh \) は双曲線正接活性化関数を指す。LSTMのこの構造により、長期的な依存関係を効果的にモデル化することが可能となり、特に時系列データや動画予測などの分野において有効である。
+    LSTMの構造の概念図を図\ref{fig:lstm}に示す。
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width=150mm]{figures/mau.png}
+      \caption{LSTMの構造。}
+      \label{fig:lstm}
+    \end{figure}
     
     \subsection{Attention}
 
@@ -158,25 +182,29 @@
       ConvLSTM（Convolutional Long Short-Term Memory）は、Shi et al. (2015)によって提案された、動画予測とその他の時空間シーケンスデータの処理に特化したニューラルネットワークアーキテクチャである。
       伝統的なLSTMの枠組みを拡張し、畳み込み操作を組み込むことで、空間的な情報を効果的に処理する能力を持つ。
       このような特性により、ConvLSTMは、動画予測のみならず、気象予測や交通流予測など、他の時空間データ処理の応用にも適用可能であり、その応用が期待されている。
-      \subsubsection{各ゲートの定義}
 
-        ConvLSTMは、LSTMの各ゲート（忘却ゲート、入力ゲート、出力ゲート）とセル状態の更新に畳み込み演算を導入する。これにより、モデルは時系列データに含まれる空間的パターンを捉え、それを時間的文脈において解析することが可能となる。特に、動画や気象データなどの時空間データにおいて、局所的な空間的特徴と時間的依存関係を同時にモデル化できる。
+      ConvLSTMは、LSTMの各ゲート（忘却ゲート、入力ゲート、出力ゲート）とセル状態の更新に畳み込み演算を導入する。これにより、モデルは時系列データに含まれる空間的パターンを捉え、それを時間的文脈において解析することが可能となる。特に、動画や気象データなどの時空間データにおいて、局所的な空間的特徴と時間的依存関係を同時にモデル化できる。
+      ConvLSTMの数学的定式化は以下の通りである。ここで、\( \ast \) は畳み込み演算、\( \circ \) はアダマール積（要素ごとの積）を表す。
 
-        ConvLSTMの数学的定式化は以下の通りである。ここで、\( \ast \) は畳み込み演算、\( \circ \) はアダマール積（要素ごとの積）を表す。
+      \begin{align}
+        f_t &= \sigma(W_{xf} \ast X_t + W_{hf} \ast H_{t-1} + W_{cf} \circ C_{t-1} + b_f) \\
+        i_t &= \sigma(W_{xi} \ast X_t + W_{hi} \ast H_{t-1} + W_{ci} \circ C_{t-1} + b_i) \\
+        C_t &= f_t \circ C_{t-1} + i_t \circ \tanh(W_{xc} \ast X_t + W_{hc} \ast H_{t-1} + b_c) \\
+        o_t &= \sigma(W_{xo} \ast X_t + W_{ho} \ast H_{t-1} + W_{co} \circ C_t + b_o) \\
+        H_t &= o_t \circ \tanh(C_t)
+      \end{align}
 
-        \begin{align}
-          f_t &= \sigma(W_{xf} \ast X_t + W_{hf} \ast H_{t-1} + W_{cf} \circ C_{t-1} + b_f) \\
-          i_t &= \sigma(W_{xi} \ast X_t + W_{hi} \ast H_{t-1} + W_{ci} \circ C_{t-1} + b_i) \\
-          C_t &= f_t \circ C_{t-1} + i_t \circ \tanh(W_{xc} \ast X_t + W_{hc} \ast H_{t-1} + b_c) \\
-          o_t &= \sigma(W_{xo} \ast X_t + W_{ho} \ast H_{t-1} + W_{co} \circ C_t + b_o) \\
-          H_t &= o_t \circ \tanh(C_t)
-        \end{align}
+      \( X_t \) は時刻 \( t \) における入力、\( H_t \) は隠れ状態、\( C_t \) はセル状態を示し、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化状態を表す。
+      \( W \) と \( b \) はネットワークの重みとバイアスパラメータである。この定式化により、ConvLSTMは時空間データの空間的な特徴と時間的な特徴を統合的に処理し、高度な予測を行う能力を持つ。
 
-        \( X_t \) は時刻 \( t \) における入力、\( H_t \) は隠れ状態、\( C_t \) はセル状態を示し、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化状態を表す。
-        \( W \) と \( b \) はネットワークの重みとバイアスパラメータである。この定式化により、ConvLSTMは時空間データの空間的な特徴と時間的な特徴を統合的に処理し、高度な予測を行う能力を持つ。
-
-
-        ここで、\( N \) はサンプル数、\( Y_i \) は実際のフレーム、\( \hat{Y}_i \) は予測フレームを表す。
+      ここで、\( N \) はサンプル数、\( Y_i \) は実際のフレーム、\( \hat{Y}_i \) は予測フレームを表す。
+      ConvLSTMのユニットの概念図を図\ref{fig:convlstm}に示す。
+      \begin{figure}[h]
+        \centering
+        \includegraphics[width=150mm]{figures/mau.png}
+        \caption{ConvLSTMの構造。}
+        \label{fig:convlstm}
+      \end{figure}
 
     \subsection{PredRNN}
 
@@ -193,7 +221,7 @@
           
         \begin{figure}[htbp]
           \begin{center}
-            \includegraphics[width=150mm]{figures/predrnn_memory.png}
+            \includegraphics[width=150mm]{figures/videoprediction/predrnn_memory.png}
             \caption{左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる。}
             \label{fig:predrnn}
           \end{center}
@@ -227,7 +255,7 @@
           
           \begin{figure}[htbp]
             \begin{center}
-              \includegraphics[width=160mm]{figures/predrnn_unit.png}
+              \includegraphics[width=160mm]{figures/videoprediction/predrnn_unit.png}
               \caption{左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
               \label{fig:stlstm}
             \end{center}
@@ -334,7 +362,7 @@
           \label{mau-mnist-2}
           \begin{tabular}{lccccc}
           \hline
-          \textbf{方法}            & \textbf{バックボーン} & \textbf{MSE$\downarrow$} & \textbf{SSIM$\uparrow$} & \textbf{パラメータ} & \textbf{推論時間} \\ \hline
+          \textbf{方法}            & \textbf{バックボーン} & \textbf{MSE$\downarrow$} & \textbf{SSIM$\uparrow$} & \textbf{パラメータ数} & \textbf{推論時間} \\ \hline
           ConvLSTM (NeurIPS2015) & 4×ConvLSTMs   & 102.1  & 0.747  & 0.98M   & 16.47s \\
           ST-LSTM (NeurIPS2017)  & 4×ST-LSTMs    & 54.5   & 0.839  & 1.57M   & 17.74s \\
           Casual-LSTM (ICML2018) & 4×Casual-LSTMs & 46.3   & 0.899  & 1.80M   & 21.25s \\

@@ -62,10 +62,8 @@
 
     \begin{figure}[htbp]
       \centering
-      \vspace*{-2cm} % 上の余白を調整
       \includegraphics[width=0.95\textwidth]{figures/exp2/gt.png}
       \caption{実際の観測画像の例。2022年2月18日0時から2022年2月22日20時の期間から4時間毎にサンプリングされている。このt=0からt=11までをモデルに入力データとして渡している。モデルはその入力データを元に、t=12からt=23の12枚の画像を予測する。t=12以降の実際の観測画像はモデルに渡されない。}
-      \vspace{-1cm} % 下の余白を調整
       \label{fig:exp2_gt}
     \end{figure}
     \begin{figure}[htbp]
@@ -97,6 +95,7 @@
         さらに、出力シークエンスの最後のタイムステップにおいて、単純差動回転モデルによるシミュレーションと、実際の観測画像との差異を観察し、動画予測モデルによる出力と比較した。
         このタイムステップは、出力の最後のタイムステップであり、最も不確定性の高い予測である。
         その散布図\ref{fig:exp2_dr_scatter}に示す。
+
         \begin{figure}[htbp]
           \begin{subfigure}[b]{0.55\textwidth}
             \centering
@@ -108,8 +107,8 @@
             \includegraphics[width=\textwidth]{figures/exp2/intensity_scatter_gt_dr.png}
             \caption{単純差動回転モデルによる、テストセットの最終ステップにおける全球平均輝度の予測対実測の散布図。計算された相関係数は0.85である。}
           \end{subfigure}
-          \label{fig:exp2_dr_scatter}
           \caption{予測対実測の散布図。縦軸が予測から計算された平均輝度強度、横軸が実際の観測画像から計算された平均輝度強度を表す。}
+          \label{fig:exp2_dr_scatter}
         \end{figure}
 
       \subsubsection{画像類似度}
@@ -130,7 +129,7 @@
 
         \subsubsection{平均輝度の再現}
           ここでは、全てのテストセットで各セクターごとの平均輝度を計算し、対応する時間ステップの実際の観測画像との絶対誤差を計算した。
-            誤差率の時間推移を図\ref{fig:lng_error}に示す。同時に単純差動回転モデルの経度ごとの画像類似度も計算した。
+            誤差率の時間推移を図\ref{fig:exp2_lng_error}に示す。同時に単純差動回転モデルの経度ごとの画像類似度も計算した。
             \begin{figure}[htbp]
               \begin{subfigure}{0.5\textwidth}
                 \centering
@@ -158,11 +157,11 @@
                 \caption{54度から90度}
               \end{subfigure}
               \caption{分割された各セクターにおける平均輝度の絶対誤差の時間推移。横軸が時間ステップ、縦軸が平均絶対誤差を表す。各グラフで縦軸の範囲が異なる。緑線がMAUによる予測から計算された絶対誤差、オレンジ線が単純差動回転モデルによるシミュレーションから計算された絶対誤差を表す。}
-              \label{fig:lng_error}
+              \label{fig:exp2_lng_error}
             \end{figure}
           
         \subsubsection{画像類似度}
-          全球での場合と同様に、経度ごとにも画像類似度を計算した。その時間推移を図\ref{fig:lng_ssim}に示す。
+          全球での場合と同様に、経度ごとにも画像類似度を計算した。その時間推移を図\ref{fig:exp2_lng_ssim}に示す。
           同時に単純差動回転モデルの経度ごとの画像類似度も計算した。
           \begin{figure}[htbp]
             \begin{subfigure}{0.5\textwidth}
@@ -190,8 +189,8 @@
               \includegraphics[width=\textwidth]{figures/exp2/lng_ssim_5.png}
               \caption{54度から90度}
             \end{subfigure}
-          \label{fig:exp2_ssim}
           \caption{分割された各セクターにおけるSSIMの時間推移。横軸が時間ステップ、縦軸がSSIMを表す。各グラフで縦軸の範囲が異なる。緑線がMAUによる予測から計算されたSSIM、オレンジ線が単純差動回転モデルによるシミュレーションから計算されたSSIMを表す。}
+          \label{fig:exp2_lng_ssim}
         \end{figure}
 
 % *************************************************************************************************************
@@ -199,17 +198,17 @@
     \subsection{東側外縁部に対する評価}
       \subsubsection{視覚的評価}
         ここでは、動画予測モデルが、東側外縁部から出現する活動領域に対して、どのような予測を行っているかを視覚的に評価する。
-        いくつかの例を図\ref{fig:exp1_limb_example_1}および\ref{fig:exp2_limb_example_2}に示す。ここで示す画像は、左列が入力シークエンスの最終データ、中央列がその24時間後の予測画像、右列がその48時間後の予測画像である。
+        いくつかの例を図\ref{fig:exp2_limb_example_1}および\ref{fig:exp2_limb_example_2}に示す。
         \begin{figure}[htbp]
           \centering
           \includegraphics[width=\textwidth]{figures/exp2/limb_sample_3_caption.jpg}
-          \caption{東側外縁部から出現する活動領域に対する予測の例。左列が入力シークエンスの最終データ、中央列がその24時間後の予測画像、右列がその48時間後の予測画像である。}
-          \label{fig:exp1_limb_example_1}
+          \caption{東側外縁部の北側中緯度帯から出現する活動領域をもつテストセットの例。上段が実際の観測画像、下段がその予測画像である。活動領域を青色破線のバウンディングボックスで囲んでいる。2022年11月6日0時から2022年11月9日8時の期間の画像。}
+          \label{fig:exp2_limb_example_1}
         \end{figure}
         \begin{figure}[htbp]
           \centering
           \includegraphics[width=\textwidth]{figures/exp2/limb_sample_12_caption.jpg}
-          \caption{東側外縁部から出現する活動領域に対する予測の例。左列が入力シークエンスの最終データ、中央列がその24時間後の予測画像、右列がその48時間後の予測画像である。}
+          \caption{東側外縁部の南側中緯度帯から出現する活動領域をもつテストセットの例。上段が実際の観測画像、下段がその予測画像である。活動領域を青色破線のバウンディングボックスで囲んでいる。2022年12月12日0時から2022年12月15日8時の期間の画像。}
           \label{fig:exp2_limb_example_2}
         \end{figure}
 
@@ -228,6 +227,7 @@
             \includegraphics[width=\textwidth]{figures/exp2/limb_scatter_gt_sp.png}
             \caption{すべてのテストセットでの、最終タイムステップでの東側外縁部の平均輝度の実測値と、その48時間前の実測値の散布図。横軸が実際の観測画像から計算された平均輝度強度、縦軸がMAUによる予測から計算された平均輝度強度を表す。計算された相関係数は0.26である。}
           \end{subfigure}
+          \caption{}
           \label{fig:exp2_limb_scatter}
         \end{figure}
         

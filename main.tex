@@ -22,6 +22,9 @@
 \fancyhead[L]{\nouppercase{\rightmark}} % ヘッダー左にセクション名を表示
 \fancyfoot[C]{\thepage} % フッター中央にページ番号を表示
 
+\setcounter{secnumdepth}{3} % タイトルにどこまの深さまで番号をつけるか
+\setcounter{tocdepth}{3}    % 目次にどこまで表示するか
+
 \DeclareFontShape{JY1}{mc}{m}{it}{<->ssub*mc/m/n}{}
 \DeclareFontShape{JY1}{mc}{m}{sl}{<->ssub*mc/m/n}{}
 \DeclareFontShape{JY1}{mc}{m}{sc}{<->ssub*mc/m/n}{}
@@ -42,7 +45,6 @@
 \input{01_coverpage}
 \input{02_abstract}
 
-\setcounter{tocdepth}{3}
 \tableofcontents
 
 \input{03_introduction}

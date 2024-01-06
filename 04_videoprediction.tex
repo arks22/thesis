@@ -58,7 +58,7 @@
         この操作の様子を図\ref{fig:convolution}に示す。
         \begin{figure}[h]
           \centering
-          \includegraphics[width=\textwidth]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/sample.png}
           \caption{畳み込み操作の様子。左: 入力データ。中央: カーネル。右: 畳み込み操作により生成された特徴マップ。}
           \label{fig:convolution}
         \end{figure}
@@ -83,7 +83,7 @@
         Max Poolingの様子を図\ref{fig:maxpooling}に示す。
         \begin{figure}[h]
           \centering
-          \includegraphics[width=\textwidth]{figures/mau.png}
+          \includegraphics[width=\textwidth]{figures/sample.png}
           \caption{最大値プーリングの様子。左: 入力データ。右: 最大値プーリングにより生成された特徴マップ。}
           \label{fig:maxpooling}
         \end{figure}
@@ -122,9 +122,9 @@
     リカレントニューラルネットワーク（RNN）は、時系列データや自然言語などのシーケンシャルな情報を扱うために開発されたニューラルネットワークの一種である。
     RNNの特徴は、過去の情報を隠れ状態として保持し、それを利用して次の出力を生成する点にある。このような再帰的な構造を持つことにより、RNNは時系列性をもつデータを扱うことが可能である。
     RNNの構造を図\ref{fig:rnn}に示す。
-    \begin{figure}[htpb]
+    \begin{figure}[htbp]
       \centering
-      \includegraphics[width=\textwidth]{figures/mau.png}
+      \includegraphics[width=\textwidth]{figures/sample.png}
       \caption{RNNの構造。}
       \label{fig:rnn}
     \end{figure}
@@ -159,17 +159,16 @@
     LSTMの構造の概念図を図\ref{fig:lstm}に示す。
     \begin{figure}[h]
       \centering
-      \includegraphics[width=\textwidth]{figures/mau.png}
+      \includegraphics[width=\textwidth]{figures/sample.png}
       \caption{LSTMの構造。}
       \label{fig:lstm}
     \end{figure}
     
     \subsection{Attention}
-
-    アテンションメカニズムは、1990年代に自然言語処理（NLP）分野で初めて提案されたが、その真価が広く認識されるようになったのは2014年の「Neural Machine Translation by Jointly Learning to Align and Translate」という論文での再発見以降である。この技術は、モデルが重要な情報に焦点を当て、それ以外の情報を無視する能力を提供することにより、ディープラーニングにおける重要な進歩の一つとなった。
+    アテンションメカニズムは、1990年代に自然言語処理（NLP）分野で初めて提案されたが、その真価が広く認識されるようになったのは2014年の「Neural Machine Translation by Jointly Learning to Align and Translate」という論文での再発見以降である。
+    この技術は、モデルが重要な情報に焦点を当て、それ以外の情報を無視する能力を提供することにより、ディープラーニングにおける重要な進歩の一つとなった。
 
     アテンションメカニズムの中心には、クエリ（Query）、キー（Key）、バリュー（Value）の三つの概念がある。これらの要素を使用して、モデルがどの情報に注意を払うべきかを決定する。
-
     \begin{itemize}
       \item \textbf{クエリ（Query）}：クエリは現在注目している要素や状態を表し、モデルがどの情報に注目するかを決定する基準となる。
       \item \textbf{キー（Key）}：キーはデータセット内の各要素に関連付けられ、クエリとの関係を定義する。クエリとキーの間の類似性が高いほど、そのキーに関連付けられた情報に注意が向けられる。
@@ -177,14 +176,9 @@
     \end{itemize}
 
     アテンションメカニズムの基本的な操作は、クエリと各キーの間の類似性を計算し、それに基づいて各バリューの重み付き和を取ることである。この重み付き和は次のように定義される。
-
     \begin{equation}
       \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
     \end{equation}
-
-    ここで、\( Q \)、\( K \)、\( V \) はそれぞれクエリ、キー、バリューの行列、\( d_k \) はキーの次元数を表す。softmax関数は、キーとクエリ間の類似性を確率的な重みに変換する。このプロセスにより、アテンションメカニズムは、重要な情報に「注意」を集中させ、関連性の低い情報を無視することができる。
-
-
 
   \section{動画予測フレームワーク}
     動画予測のフレームワークは、一般的にエンコーダ・デコーダ構造を基本とし、その中にLSTMやアテンションメカニズムなどの機構を組み込むことで、動画の時空間的な特徴を効果的に捉えることが可能となる。
@@ -197,7 +191,6 @@
 
       ConvLSTMは、LSTMの各ゲート（忘却ゲート、入力ゲート、出力ゲート）とセル状態の更新に畳み込み演算を導入する。これにより、モデルは時系列データに含まれる空間的パターンを捉え、それを時間的文脈において解析することが可能となる。特に、動画や気象データなどの時空間データにおいて、局所的な空間的特徴と時間的依存関係を同時にモデル化できる。
       ConvLSTMの数学的定式化は以下の通りである。ここで、\( \ast \) は畳み込み演算、\( \circ \) はアダマール積（要素ごとの積）を表す。
-
       \begin{align}
         f_t &= \sigma(W_{xf} \ast X_t + W_{hf} \ast H_{t-1} + W_{cf} \circ C_{t-1} + b_f) \\
         i_t &= \sigma(W_{xi} \ast X_t + W_{hi} \ast H_{t-1} + W_{ci} \circ C_{t-1} + b_i) \\
@@ -208,12 +201,11 @@
 
       \( X_t \) は時刻 \( t \) における入力、\( H_t \) は隠れ状態、\( C_t \) はセル状態を示し、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化状態を表す。
       \( W \) と \( b \) はネットワークの重みとバイアスパラメータである。この定式化により、ConvLSTMは時空間データの空間的な特徴と時間的な特徴を統合的に処理し、高度な予測を行う能力を持つ。
-
       ここで、\( N \) はサンプル数、\( Y_i \) は実際のフレーム、\( \hat{Y}_i \) は予測フレームを表す。
       ConvLSTMのユニットの概念図を図\ref{fig:convlstm}に示す。
-      \begin{figure}[h]
+      \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{figures/mau.png}
+        \includegraphics[width=\textwidth]{figures/sample.png}
         \caption{ConvLSTMの構造。}
         \label{fig:convlstm}
       \end{figure}
@@ -230,7 +222,6 @@
         PredRNNでは、時空間メモリフローを利用して空間情報の伝達を最適化する。このメモリフローは、遠隔状態間で情報を伝達し、勾配消失問題を軽減するために設計されている。
         時間方向と、各時間ステップでの隠れ層方向にジグザグにメモリを流す。
         このように、層をまたいで情報を上方向に伝達し、時間を超えて前方向に情報を伝達することにより、空間情報の効率的な流れを実現し、動画フレーム間のより詳細な変化を捉えることができる。
-          
         \begin{figure}[htbp]
           \begin{center}
             \includegraphics[width=\textwidth]{figures/videoprediction/predrnn_memory.png}
@@ -249,7 +240,6 @@
           ここで、\( \ast \) は畳み込み演算を、\( \circ \) はアダマール積（要素ごとの積）を示す。
           \( W \) と \( b \) は重みとバイアスパラメータ、\( \sigma \) はシグモイド活性化関数、\( \tanh \) は双曲線正接活性化関数を指す。
           \( X_t \) は時刻 \( t \) の入力、\( H_t^l \) は隠れ状態、\( C_t^l \) は標準的なLSTMセル、\( M_t^l \) は時空間メモリセルを表す。
-          
           \begin{align}
           g_t &= \tanh(W_{xg} \ast X_t + W_{hg} \ast H_{t-1}^l + b_g) \\
           i_t &= \sigma(W_{xi} \ast X_t + W_{hi} \ast H_{t-1}^l + W_{mi} \circ M_{t-1}^l + b_i) \\
@@ -264,7 +254,6 @@
           \end{align}
           
           この構造により、PredRNNは時空間データの複雑なダイナミクスを捉え、より正確な未来予測を生成する。
-          
           \begin{figure}[htbp]
             \begin{center}
               \includegraphics[width=160mm]{figures/videoprediction/predrnn_unit.png}
@@ -289,57 +278,52 @@
       
       \begin{figure}[htbp]
         \begin{center}
-          \includegraphics[width=160mm]{figures/mau.png}
+          \includegraphics[width=160mm]{figures/videoprediction/mau.png}
           \caption{左: MAUセルを積み重ねたMAUモデルの構造。オレンジ色の矢印は空間方向のメモリフローを示し、青色の矢印は時間方向のメモリフローを示す。エンコーダ・デコーダ構造は各時間ステップにおいて一回ずつ適用され、情報を効果的に圧縮している。右:MAUセルは、注意（Attention）モジュールと融合（Fusion）モジュールの2つの部分から構成されている。}
           \label{fig:mau_attention}
         \end{center}
       \end{figure}
         
       \begin{itemize}
-        \item \textbf{エンコーダ・デコーダ構造}: MAUは、エンコーダ・デコーダ構造を基本としている。Conv-LSTMやPred-RNNなどの他の動画予測モデルではエンコーダ・デコーダ構造は採用されていないが、MAUではエンコーダ・デコーダ構造を採用することで、より効率的な特徴抽出を可能にしている。
+
+        \item \textbf{エンコーダ・デコーダ構造}: MAUは、エンコーダ・デコーダ構造を基本としている。
+        Conv-LSTMやPred-RNNなどの他の動画予測モデルではエンコーダ・デコーダ構造は採用されていないが、MAUではエンコーダ・デコーダ構造を採用することで、より効率的な特徴抽出を可能にしている。
         一定程度抽象化された情報を再帰的ネットワークに入力することで、より多くのMAUセルの積層を行っても、計算コストを抑えることができる。
         \begin{align}
           \hat{X}_t &= \text{Dec}[\text{MAU}(\text{Enc}(X_{t-\tau:t-1}))]
         \end{align}
         ここで、\( \text{Enc} \) はエンコーダ、\( \text{Dec} \) はデコーダを表し、\( \tau \) は入力シーケンスの長さを表す。
           
-          
         \item \textbf{注意(Attention) モジュール}: 
-        注意モジュールは、先述の時間的受容野の拡張のために導入される。このモジュールの導入により、異なる時間状態に対して異なるレベルの注意を払い、予測に対してもっとも相関の高い状態に注意を集中させることが期待されている。
+        注意モジュールは、先述の時間的受容野の拡張のために導入される。
+        このモジュールの導入により、異なる時間状態に対して異なるレベルの注意を払い、予測に対してもっとも相関の高い状態に注意を集中させることが期待されている。
         長期的な運動情報としての\( T_{\text{att}} \)は以下のように計算される。
-
         \begin{align}
           T_{\text{att}} = \sum_{j=1}^{\tau} \alpha_j \cdot T_{t-j}^{k}
         \end{align}
-
         ここで、\( \alpha_j \) は時間状態\( T_{t-j}^{k} \)に対するアテンションスコアを表す。
-        \( T_{\text{att}} \) は、アテンションスコアによって、予測結果に対して長期的な相関性を持つ時間状態を考慮することができるが、短期的な時間状態 \( T_{t-1}^{k} \) も考慮する必要がある。そこで、それらを融合するためのゲート \( U_f \) を導入し、長期的な時間状態 \( T_{\text{att}} \) と短期的な時間状態 \( T_{t-1}^{k} \) を融合した\( T_{AMI} \)を以下のように計算する。
-
+        \( T_{\text{att}} \) は、アテンションスコアによって、予測結果に対して長期的な相関性を持つ時間状態を考慮することができるが、短期的な時間状態 \( T_{t-1}^{k} \) も考慮する必要がある。
+        そこで、それらを融合するためのゲート \( U_f \) を導入し、長期的な時間状態 \( T_{\text{att}} \) と短期的な時間状態 \( T_{t-1}^{k} \) を融合した\( T_{AMI} \)を以下のように計算する。
         \begin{align}
           U_f = \sigma(W_f \ast T_{t-k-1}) \\
           T_{AMI} = U_f \odot T_{t-k-1} + (1 - U_f) \odot T_{\text{att}} 
         \end{align}
 
         \item \textbf{融合(Fusion) モジュール}: 融合モジュールは、拡張された運動情報\(T_{\text{AMI}} \)と現在の空間的状態を適切に統合する役割を持つ。融合プロセスでは、時間的更新ゲート\( U_t \)と空間的更新ゲート\( U_s \)を導入する。
-        
         \begin{align}
           U_t = \sigma(W_{\text{tu}} \ast T_{\text{AMI}}) \\
           U_s = \sigma(W_{\text{su}} \ast X_t) 
         \end{align}
-        
         ここで、\( W_{\text{tu}} \) と \( W_{\text{su}} \) はそれぞれ時間的更新ゲートと空間的更新ゲートの重みを表す。
         このゲートを利用して、時間状態\( T_{t}^{k} \)と空間状態\( S_{t}^{k} \)を以下のように計算する。
-        
         \begin{align}
         T_{t}^{k} = U_t \odot (W_{tt} \ast T_{\text{AMI}}) + (1 - U_t) \odot (W_{st} \ast S_{t}^{k-1}) \\
         S_{t}^{k} = U_s \odot (W_{ss} \ast S_{t}^{k-1}) + (1 - U_s) \odot (W_{ts} \ast T_{\text{AMI}}) + \gamma \cdot S_{t}^{k-1}
         \end{align}
-        
         ここで、\( W_{tt} \)、\( W_{st} \)、\( W_{ss} \)、\( W_{ts} \) はそれぞれ時間状態と空間状態の重みを表し、\( \gamma \) は学習の安定化を図るための残差項の係数である。
 
         \item \textbf{情報リコール}: 
           MAUでは、エンコーダとデコーダ間で情報損失を防ぐために、情報リコールスキームが採用されている。これはU-Netなどでで用いられるスキップ接続に似た構造を持っている。これにより、デコーダは多レベルのエンコードされた情報を考慮することができ、予測の視覚的品質を向上させることができる。    
-
 
        \end{itemize}
 
@@ -348,7 +332,7 @@
         ここでは、Moving MNISTデータセットに関する既存の動画予測モデルによる性能との比較の結果を示す。表\ref{mau-mnist-1}は、異なる手法によるMoving MNISTデータセットにおける定量的な結果を示している。MAUは、構造的類似性(Structual Similarity, SSIM)スコアと平均二乗誤差(Mean Squared Error, MSE)スコアの両方において、最も優れた結果を示している。
         \ref{mau-mnist-2}は、LSTMユニットを積層する動画予測モデルのバックボーンを統一し、それぞれの場合でのパラメータと推論時間に焦点を当てた比較を行なっている。これによれば、MAUは他の手法と比較して、より少ないパラメータ数とより短い推論時間で動作することができ、さらにMSEとSSIMの両方において最も優れた結果を示している。
 
-        \begin{table}[h]
+        \begin{table}[hptb]
           \centering
           \caption{Moving MNISTデータセットにおけるビデオ予測方法の定量的結果（10フレーム→10フレーム）。低いMSEと高いSSIMスコアはより良い視覚的品質を示す。}
           \label{mau-mnist-1}
@@ -368,7 +352,7 @@
           \end{tabular}
         \end{table}
           
-        \begin{table}[h]
+        \begin{table}[hptb]
           \centering
           \caption{Moving MNISTデータセット（10フレーム→10フレーム）に対する比較。公平な比較のため、すべてのモデルのエンコーダとデコーダは同じ構造をしており、すべてのモデルはMSE損失に基づいてAdamオプティマイザーを用いて訓練されている。}
           \label{mau-mnist-2}
@@ -382,6 +366,6 @@
           E3D-LSTM (ICLR2019) & 4×E3D-LSTMs   & 40.1   & 0.912  & 4.70M   & 57.21s \\
           RPM (ICLR2020)     & 4×RPMs        & 42.0   & 0.922  & 1.77M   & 18.01s \\
           MotionGRU (CVPR2021)& 4×MotionGRUs  & 34.3   & 0.928  & 1.16M   & 17.58s \\
-          MAU                         & 4×MAUs        & \textbf{29.5}   & \textbf{0.931}  & \textbf{0.78M}   & \textbf{17.34s} \\ \hline
+          MAU                 & 4×MAUs        & \textbf{29.5}   & \textbf{0.931}  & \textbf{0.78M}   & \textbf{17.34s} \\ \hline
           \end{tabular}
         \end{table}

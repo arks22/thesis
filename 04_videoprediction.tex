@@ -18,15 +18,11 @@
     \subsection{最適化}
     最適化プロセスは、一連の学習データセットを用いて、損失関数Lを最小化するように動画予測モデル\( M \) のパラメータを調整する。
     このプロセスは、以下のように表現される：
-
     \begin{equation}
     M_{\text{optimized}} = argmin_{M} L(\hat{X}, X)
     \end{equation}
-
     ここで、\( M_{\text{optimized}} \) は最適化された予測モデルを表す。
-
     この損失関数は、予測された未来のフレームと実際の未来のフレームとの差異を測定するために使用され、一般的には平均二乗誤差（Mean Squared Error, MSE）が用いられる。これは、予測されたフレームと実際のフレームのピクセル単位の差異を測定する。MSEは次のように定義される：
-
     \begin{equation}
     MSE = \frac{1}{N} \sum_{i=1}^{N} (X_i - \hat{X}_i)^2
     \end{equation}
@@ -52,19 +48,16 @@
         
         CNNおける畳み込み処理は、入力データに対する特定のカーネルの適用として理解される。カーネルは小規模な行列であり、入力データの局所的な領域に対して適用される。
         この畳み込み操作は、入力データを I、カーネルを K とした場合、以下の式で表される。
-
         \begin{equation}
           S(i, j) = (I * K)(i, j) = \sum_{m}\sum_{n}I(i+m, j+n)K(m, n)
         \end{equation}
-        
         この操作の様子を図\ref{fig:convolution}に示す。
         \begin{figure}[h]
           \centering
-          \includegraphics[width=\textwidth]{figures/sample.png}
+          \includegraphics[width=\textwidth]{figures/videoprediction/convolution.jpg}
           \caption{畳み込み操作の様子。左: 入力データ。中央: カーネル。右: 畳み込み操作により生成された特徴マップ。}
           \label{fig:convolution}
         \end{figure}
-
         この操作は、入力データの全域にわたって繰り返され、最終的に特徴マップと呼ばれる新しい行列が生成される。特徴マップには、その入力データにおける特定のパターンや構造が抽出されている。
       
       \subsubsection{プーリング}
@@ -77,15 +70,13 @@
         これにより、特徴マップから最も強い信号を保持し、関連性の低い信号を破棄する。
         最大値プーリングは、特に画像内のテクスチャや形状などの顕著な特徴を強調するのに有効である。
         ここで、入力となる特徴マップをF, プーリング領域のサイズをm*n, プーリング層の出力をPとすると、最大値プーリングは以下の式で表される。
-
         \begin{equation}
           P(i, j) = \max_{m}\max_{n}F(i+m, j+n)
         \end{equation}
-        
-        Max Poolingの様子を図\ref{fig:maxpooling}に示す。
-        \begin{figure}[h]
+        最大値プーリングの様子を図\ref{fig:maxpooling}に示す。
+        \begin{figure}[htbp]
           \centering
-          \includegraphics[width=\textwidth]{figures/sample.png}
+          \includegraphics[width=0.7\textwidth]{figures/videoprediction/pooling.jpg}
           \caption{最大値プーリングの様子。左: 入力データ。右: 最大値プーリングにより生成された特徴マップ。}
           \label{fig:maxpooling}
         \end{figure}
@@ -124,7 +115,7 @@
     RNNの構造を図\ref{fig:rnn}に示す。
     \begin{figure}[htbp]
       \centering
-      \includegraphics[width=0.7\textwidth]{figures/videoprediction/rnn.jpg}
+      \includegraphics[width=0.75\textwidth]{figures/videoprediction/rnn.jpg}
       \caption{RNNの構造。緑色のブロック\( h \)は隠れ層を表す。}
       \label{fig:rnn}
     \end{figure}
@@ -146,11 +137,15 @@
     
     LSTMのユニークな構造は以下の三つのゲートから成る：忘却ゲート、入力ゲート、出力ゲート。
     
-    1. \textbf{忘却ゲート（Forget Gate）}：このゲートは、セル状態に含まれる情報の一部を削除する役割を担う。LSTMネットワークが長期的な依存関係を学習する過程で、関連性の低い古い情報を捨てることが重要である。忘却ゲートはシグモイド関数を使用して、どの情報を保持し、どの情報を忘れるかを決定する。
+    1. \textbf{忘却ゲート（Forget Gate）}：このゲートは、セル状態に含まれる情報の一部を削除する役割を担う。
+    LSTMネットワークが長期的な依存関係を学習する過程で、関連性の低い古い情報を捨てることが重要である。
+    忘却ゲートはシグモイド関数を使用して、どの情報を保持し、どの情報を忘れるかを決定する。
    
-    2. \textbf{入力ゲート（Input Gate）}：入力ゲートは、新しい情報をどの程度セル状態に追加するかを決定する。このゲートでは、シグモイド関数がどの情報を更新するかを決定し、tanh関数が新しい候補値を生成する。そして、これら二つの値の積が新しい情報としてセル状態に追加される。
+    2. \textbf{入力ゲート（Input Gate）}：入力ゲートは、新しい情報をどの程度セル状態に追加するかを決定する。
+    このゲートでは、シグモイド関数がどの情報を更新するかを決定し、tanh関数が新しい候補値を生成する。そして、これら二つの値の積が新しい情報としてセル状態に追加される。
     
-    3. \textbf{出力ゲート（Output Gate）}：出力ゲートは、現在のセル状態に基づいて、ネットワークの出力を決定する。このゲートは、シグモイド関数を使用して、セル状態のどの部分が出力されるべきかを決定し、tanh関数によって処理されたセル状態との積が最終的な出力となる。
+    3. \textbf{出力ゲート（Output Gate）}：出力ゲートは、現在のセル状態に基づいて、ネットワークの出力を決定する。
+    このゲートは、シグモイド関数を使用して、セル状態のどの部分が出力されるべきかを決定し、tanh関数によって処理されたセル状態との積が最終的な出力となる。
     
     LSTMユニットの数学的な定式化は以下の通りである。\( h_t \) は時刻 \( t \) での隠れ状態、\( c_t \) はセル状態、\( x_t \) は入力、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化関数を表す。
     
@@ -265,7 +260,8 @@
           \begin{figure}[htbp]
             \begin{center}
               \includegraphics[width=160mm]{figures/videoprediction/predrnn_unit.png}
-              \caption{左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
+              \caption{左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。
+              PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
               \label{fig:stlstm}
             \end{center}
           \end{figure}
@@ -279,9 +275,11 @@
       本研究では、このMAUを用いて太陽全球紫外線画像の予測を行う。
       
       \subsubsection{アーキテクチャ}
-      動画予測モデルでは、出力中の時間ステップが進むほど、時間情報の不確実性が増加するため、予測誤差が劇的に加速してしまう。この問題を解決するため、動画予測モデルはより幅広い時間ステップから有用な特徴を保存し活用する必要がある。すなわち、時間的受容野を拡張する必要がある。
+      動画予測モデルでは、出力中の時間ステップが進むほど、時間情報の不確実性が増加するため、予測誤差が劇的に加速してしまう。
+      この問題を解決するため、動画予測モデルはより幅広い時間ステップから有用な特徴を保存し活用する必要がある。すなわち、時間的受容野を拡張する必要がある。
       このような問題に対するアプローチとして、\citex{wang2018eidetic}によって提案された、三次元畳み込みを導入したE3D-LSTMがあったが、非常に高い計算コストを必要とし、性能の改善は限定的であった。
-      Motion-Aware Unit (MAU)は、このような課題を解決するため、Attention機構を導入した新しいアーキテクチャを提案している。ここでは、Attention機構を用いたアーキテクチャと、その統合や効率化のために導入されたいくつかの特徴について説明する。
+      Motion-Aware Unit (MAU)は、このような課題を解決するため、Attention機構を導入した新しいアーキテクチャを提案している。
+      ここでは、Attention機構を用いたアーキテクチャと、その統合や効率化のために導入されたいくつかの特徴について説明する。
       
       \begin{figure}[htbp]
         \begin{center}
@@ -336,8 +334,10 @@
 
       \subsubsection{主な実験結果}
         MAUは、複数のデータセットで評価され、その中にはMoving MNIST、KITTI、Caltech Pedestrian、TownCentreXVID、Something-Something V2が含まれる。
-        ここでは、Moving MNISTデータセットに関する既存の動画予測モデルによる性能との比較の結果を示す。表\ref{mau-mnist-1}は、異なる手法によるMoving MNISTデータセットにおける定量的な結果を示している。MAUは、構造的類似性(Structual Similarity, SSIM)スコアと平均二乗誤差(Mean Squared Error, MSE)スコアの両方において、最も優れた結果を示している。
-        \ref{mau-mnist-2}は、LSTMユニットを積層する動画予測モデルのバックボーンを統一し、それぞれの場合でのパラメータと推論時間に焦点を当てた比較を行なっている。これによれば、MAUは他の手法と比較して、より少ないパラメータ数とより短い推論時間で動作することができ、さらにMSEとSSIMの両方において最も優れた結果を示している。
+        ここでは、Moving MNISTデータセットに関する既存の動画予測モデルによる性能との比較の結果を示す。表\ref{mau-mnist-1}は、異なる手法によるMoving MNISTデータセットにおける定量的な結果を示している。
+        MAUは、構造的類似性(Structual Similarity, SSIM)スコアと平均二乗誤差(Mean Squared Error, MSE)スコアの両方において、最も優れた結果を示している。
+        \ref{mau-mnist-2}は、LSTMユニットを積層する動画予測モデルのバックボーンを統一し、それぞれの場合でのパラメータと推論時間に焦点を当てた比較を行なっている。
+        これによれば、MAUは他の手法と比較して、より少ないパラメータ数とより短い推論時間で動作することができ、さらにMSEとSSIMの両方において最も優れた結果を示している。
 
         \begin{table}[hptb]
           \centering

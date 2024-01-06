@@ -13,6 +13,9 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{fancyhdr}
+\usepackage[authoryear]{natbib} % 著者-年式の引用スタイル
+\newcommand{\citex}[1]{\citeauthor{#1} (\citeyear{#1})}
+\bibliographystyle{plainnat} % natbib互換のスタイル
 
 \pagestyle{fancy}
 \fancyhf{} % ヘッダーとフッターをクリア
@@ -50,8 +53,6 @@
 \input{08_summary}
 \input{09_thanks}
 
-
 \bibliography{references} % .bibファイルの名前
-\bibliographystyle{junsrt} % 文献スタイル
 
 \end{document}

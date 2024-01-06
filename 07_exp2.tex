@@ -47,13 +47,12 @@
     データに関しても、データ数の増減による影響がないように、前回の実験と同じ期間のデータを用いた。欠損期間なども同様である。
 
   \section{学習の推移}
-  
   学習は図\ref{fig:exp2_learn_progress}のように推移した。学習の初期段階では、学習データに対する損失関数の値が急激に減少しているが、学習が進むにつれて収束に向かって緩やかに減少していることがわかる。
   また、学習損失、検証損失ともに、安定的に減少していることがわかる。
   学習にはNVIDIA RTX A6000を用い、完了までに約60時間を要した。
   \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{figures/exp1/loss.png}
+    \includegraphics[width=0.8\textwidth]{figures/exp1/loss.png}
     \caption{本実験での、学習データ、検証データでの損失関数の推移。どちらも安定的に減少している。}
     \label{fig:exp2_learn_progress}
   \end{figure}

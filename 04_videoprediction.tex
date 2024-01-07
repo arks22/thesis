@@ -13,7 +13,6 @@
     また、もっとも初めの出力フレーム以降のフレームでは、直前の出力フレームが入力フレームとして扱われる。
     動画予測モデル \( M \) は、出力長として位置付けられるある時間ステップ\( t\) のフレーム\( \hat{X}_{t} \) を生成する際は、その直前までの過去のフレーム \( X_{0:t-1} \) を入力として受け取り、それに基づいてそれに続く未来のフレームを生成する。
     このプロセスは以下のように定式化される：
-
     \begin{equation}
     \hat{X}_{t} = M(X_{0:t-1})
     \end{equation}
@@ -36,10 +35,11 @@
     ここではそういった基礎技術群について説明する。
 
     \subsection{Convolutional Neural Network (CNN)}
-      動画予測において、CNNは各フレームの空間的な特徴を抽出する役割を担う。
+      CNNは動画予測において、各フレームの空間的な特徴を抽出する役割を担う。
       動画は時間的な次元を持つ一連の画像であり、各フレームにおける空間的な特徴を理解することは、時間的な次元を解析する前の重要なステップである。
 
-      畳み込みニューラルネットワーク（CNN）は、特に画像認識や動画処理において広く用いられる深層学習の一形態である。
+      CNNは、\citex{fukushima1980neocognitron}によるネオコグニトロンの開発や、\citex{lecun1989backpropagation}による手書き数字認識の研究などにより、画像認識の分野で初めて使用された。
+      その後、\citex{krizhevsky2012imagenet}により開発されたAlexNetが成功したことにより、現在では画像認識の分野において最も広く用いられる深層学習の一形態となっている。
       CNNは、画像の局所的な特徴を捉えるために、畳み込み層とプーリング層を交互に繰り返すことで構成される。
       畳み込み層は画像から特徴を抽出するためのフィルターの役割を果たし、プーリング層は画像の特徴を圧縮する役割を持つ。
       CNNを用いた多くの画像処理アプリケーションにおいては、この畳み込み操作とプーリング操作が連続的に繰り返されることで、入力データの高次元な特徴を抽出することを可能にしている。
@@ -55,13 +55,14 @@
           S(i, j) = (I * K)(i, j) = \sum_{m}\sum_{n}I(i+m, j+n)K(m, n)
         \end{equation}
         この操作の様子を図\ref{fig:convolution}に示す。
-        \begin{figure}[h]
+        この操作は、入力データの全域にわたって繰り返され、最終的に特徴マップと呼ばれる新しい行列が生成される。
+        特徴マップには、その入力データにおける特定のパターンや構造が抽出されている。
+        \begin{figure}[htbp]
           \centering
           \includegraphics[width=\textwidth]{figures/videoprediction/convolution.jpg}
           \caption{畳み込み操作の様子。左: 入力データ。中央: カーネル。右: 畳み込み操作により生成された特徴マップ。}
           \label{fig:convolution}
         \end{figure}
-        この操作は、入力データの全域にわたって繰り返され、最終的に特徴マップと呼ばれる新しい行列が生成される。特徴マップには、その入力データにおける特定のパターンや構造が抽出されている。
       
       \subsubsection{プーリング}
         この層の主な目的は、特徴マップの次元を減少させることである。
@@ -158,20 +159,21 @@
       h_t &= o_t * \tanh(c_t)
     \end{align}
     
-    ここで、\( W \) と \( b \) はそれぞれ重みとバイアスを表し、\( \sigma \) はシグモイド活性化関数、\( \tanh \) は双曲線正接活性化関数を指す。
+    ここで、\( W \) と \( b \) はそれぞれ重みとバイアスを表し、\( \sigma \) はシグモイド活性化関数、\( \tanh \) はtanig活性化関数を指す。
     LSTMのこの構造により、長期的な依存関係を効果的にモデル化することが可能となり、特に時系列データや動画予測などの分野において有効である。
     LSTMの構造の概念図を図\ref{fig:lstm}に示す。
-    \begin{figure}[h]
+    \begin{figure}[htbp]
       \centering
-      \includegraphics[width=1.05\textwidth]{figures/videoprediction/lstm.jpg}
+      \includegraphics[width=1.0\textwidth]{figures/videoprediction/lstm.jpg}
       \caption{LSTMの構造。RNNのような再帰的な構造を持ちながら、ゲートによって情報の取捨選択を行うことで、長期的な情報の活用が可能になる。}
       \label{fig:lstm}
     \end{figure}
     
     \subsection{Attention}
-    アテンションメカニズムは、1990年代に自然言語処理（NLP）分野で初めて提案されたが、
-    この技術は、モデルが重要な情報に焦点を当て、それ以外の情報を無視する能力を提供することにより、ディープラーニングにおける重要な進歩の一つとなった。
+    アテンションメカニズムは、\citex{bahdanau2014neural}によってニューラルネットワークをベースにした機械翻訳モデルに導入された。
+    その後、\citex{vaswani2017attention}によってアテンションメカニズムを用いたTransformerモデルが提案され、自然言語分野のみならず、画像処理や時系列データなどでも広く用いられるようになった。
 
+    アテンションは、モデルが特定の情報に注目することを可能にする機構である。
     アテンションメカニズムの中心には、クエリ（Query）、キー（Key）、バリュー（Value）の三つの概念がある。これらの要素を使用して、モデルがどの情報に注意を払うべきかを決定する。
     \begin{itemize}
       \item \textbf{クエリ（Query）}：クエリは現在注目している要素や状態を表し、モデルがどの情報に注目するかを決定する基準となる。
@@ -189,30 +191,34 @@
     ここでは、もっとも基本的な動画予測フレームワークであるConvLSTMと、その後の改良を加えたPredRNN、また本研究で用いるMotion-Aware Unit (MAU) について説明する。
 
     \subsection{ConvLSTM}
-      ConvLSTM（Convolutional Long Short-Term Memory）は、\citex{shi2015convolutional}によって提案された、動画予測とその他の時空間シーケンスデータの処理に特化したニューラルネットワークアーキテクチャである。
-      伝統的なLSTMの枠組みを拡張し、畳み込み操作を組み込むことで、空間的な情報を効果的に処理する能力を持つ。
-      このような特性により、ConvLSTMは、動画予測のみならず、気象予測や交通流予測など、他の時空間データ処理の応用にも適用可能であり、その応用が期待されている。
+      ConvLSTM（Convolutional Long Short-Term Memory）は、\citex{shi2015convolutional}によって提案された、時空間シーケンスデータの処理に特化したニューラルネットワークアーキテクチャである。
+      従来のLSTMの枠組みを拡張し、畳み込み操作を組み込むことで、空間的な情報を効果的に処理する能力を持つ。
+      このような特性により、ConvLSTMは、動画予測のみならず、気象予測や交通流予測など、他の時空間データ処理の応用にも適用可能である。
 
-      ConvLSTMは、LSTMの各ゲート（忘却ゲート、入力ゲート、出力ゲート）とセル状態の更新に畳み込み演算を導入する。これにより、モデルは時系列データに含まれる空間的パターンを捉え、それを時間的文脈において解析することが可能となる。特に、動画や気象データなどの時空間データにおいて、局所的な空間的特徴と時間的依存関係を同時にモデル化できる。
-      ConvLSTMの数学的定式化は以下の通りである。ここで、\( \ast \) は畳み込み演算、\( \circ \) はアダマール積（要素ごとの積）を表す。
-      \begin{align}
-        f_t &= \sigma(W_{xf} \ast X_t + W_{hf} \ast H_{t-1} + W_{cf} \circ C_{t-1} + b_f) \\
-        i_t &= \sigma(W_{xi} \ast X_t + W_{hi} \ast H_{t-1} + W_{ci} \circ C_{t-1} + b_i) \\
-        C_t &= f_t \circ C_{t-1} + i_t \circ \tanh(W_{xc} \ast X_t + W_{hc} \ast H_{t-1} + b_c) \\
-        o_t &= \sigma(W_{xo} \ast X_t + W_{ho} \ast H_{t-1} + W_{co} \circ C_t + b_o) \\
-        H_t &= o_t \circ \tanh(C_t)
-      \end{align}
-
-      \( X_t \) は時刻 \( t \) における入力、\( H_t \) は隠れ状態、\( C_t \) はセル状態を示し、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化状態を表す。
-      \( W \) と \( b \) はネットワークの重みとバイアスパラメータである。この定式化により、ConvLSTMは時空間データの空間的な特徴と時間的な特徴を統合的に処理し、高度な予測を行う能力を持つ。
-      ここで、\( N \) はサンプル数、\( Y_i \) は実際のフレーム、\( \hat{Y}_i \) は予測フレームを表す。
+      通常のLSTMでは、長期間メモリ\( c_t\)やセル出力\(h_t\)に全結合のベクトルを使用するが、ConvLSTMではそれらに二次元の行列を使用する。
+      また、空間的な特徴をモデル化するために、LSTMの各ゲート（忘却ゲート、入力ゲート、出力ゲート）とセル状態の更新に畳み込み演算を導入する。
       ConvLSTMのユニットの概念図を図\ref{fig:convlstm}に示す。
       \begin{figure}[htbp]
         \centering
-        \includegraphics[width=\textwidth]{figures/sample.png}
+        \includegraphics[width=\textwidth]{figures/videoprediction/convlstm.jpg}
         \caption{ConvLSTMの構造。}
         \label{fig:convlstm}
       \end{figure}
+      ConvLSTMの数学的定式化は以下の通りである。
+      \begin{align}
+        f_t &= \sigma(W_{xf} \ast x_t + W_{hf} \ast h_{t-1} + W_{cf} \circ c_{t-1} + b_f) \\
+        i_t &= \sigma(W_{xi} \ast x_t + W_{hi} \ast h_{t-1} + W_{ci} \circ c_{t-1} + b_i) \\
+        c_t &= f_t \circ c_{t-1} + i_t \circ \tanh(W_{xc} \ast X_t + W_{hc} \ast h_{t-1} + b_c) \\
+        o_t &= \sigma(W_{xo} \ast X_t + W_{ho} \ast H_{t-1} + W_{co} \circ c_t + b_o) \\
+        h_t &= o_t \circ \tanh(c_t)
+      \end{align}
+      ここで、\( x_t \) は時刻 \( t \) における入力、\( h_t \) は隠れ状態、\( c_t \) はセル状態を示し、\( f_t \)、\( i_t \)、\( o_t \) はそれぞれ忘却ゲート、入力ゲート、出力ゲートの活性化状態を表す。
+      \( W \) と \( b \) はネットワークの重みとバイアスパラメータである。
+      \( \ast \) は畳み込み演算、\( \circ \) はアダマール積（要素ごとの積）を表す。
+      このような計算により、ConvLSTMは時空間データの空間的な特徴と時間的な特徴を統合的に処理し、高度な予測を行う能力を持つ。
+      これにより、モデルは時系列データに含まれる空間的パターンを捉え、それを時間的文脈において解析することが可能となる。
+
+      %ここで、\( N \) はサンプル数、\( Y_i \) は実際のフレーム、\( \hat{Y}_i \) は予測フレームを表す。
 
     \subsection{PredRNN}
       最初の動画予測モデルであるConvLSTMの発表後、そのアーキテクチャを基に様々な改良が加えられてきた。
@@ -260,7 +266,7 @@
           この構造により、PredRNNは時空間データの複雑なダイナミクスを捉え、より正確な未来予測を生成する。
           \begin{figure}[htbp]
             \begin{center}
-              \includegraphics[width=160mm]{figures/videoprediction/predrnn_unit.png}
+              \includegraphics[width=\textwidth]{figures/videoprediction/predrnn_unit.png}
               \caption{左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。
               PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
               \label{fig:stlstm}
@@ -284,7 +290,7 @@
       ここでは、Attention機構を用いたアーキテクチャと、その統合や効率化のために導入されたいくつかの特徴について説明する。
       \begin{figure}[htbp]
         \begin{center}
-          \includegraphics[width=160mm]{figures/videoprediction/mau.png}
+          \includegraphics[width=\textwidth]{figures/videoprediction/mau.png}
           \caption{左: MAUセルを積み重ねたMAUモデルの構造。オレンジ色の矢印は空間方向のメモリフローを示し、青色の矢印は時間方向のメモリフローを示す。エンコーダ・デコーダ構造は各時間ステップにおいて一回ずつ適用され、情報を効果的に圧縮している。右:MAUセルは、注意（Attention）モジュールと融合（Fusion）モジュールの2つの部分から構成されている。}
           \label{fig:mau_attention}
         \end{center}
@@ -360,7 +366,6 @@
           MAU & \textbf{0.937} & \textbf{27.6} \\ \hline
           \end{tabular}
         \end{table}
-          
         \begin{table}[hptb]
           \centering
           \caption{Moving MNISTデータセット（10フレーム→10フレーム）に対する比較。公平な比較のため、すべてのモデルのエンコーダとデコーダは同じ構造をしており、すべてのモデルはMSE損失に基づいてAdamオプティマイザーを用いて訓練されている。}

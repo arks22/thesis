@@ -87,7 +87,6 @@
         \item \textbf{平均値プーリング（Average Pooling）}：平均プーリングは、各領域の平均値を計算する。
         これにより、特徴マップの全体的な特性をより平滑化し、より均一な特徴表現を提供することが可能である。
         ここで、入力となる特徴マップをF, プーリング層の出力をPとすると、平均値プーリングは以下の式で表される。
-
         \begin{equation}
           P(i, j) = \frac{1}{mn}\sum_{m}\sum_{n}F(i+m, j+n)
         \end{equation}
@@ -112,14 +111,13 @@
         動画予測の再帰ネットワーク内では、エンコーダにより圧縮された行列が扱われるため、そのままでは出力には不適切である。
         デコーダはそのような圧縮された表現を元の次元に展開し、出力に適した形式に変換する。
 
-    
     \subsection{Recurrent Neural Network (RNN)}
-    リカレントニューラルネットワーク（RNN）は、時系列データや自然言語などのシーケンシャルな情報を扱うために開発されたニューラルネットワークの一種である\citex{werbos1990backpropagation}。
+    リカレントニューラルネットワーク（RNN）は、時系列データや自然言語などのシーケンシャルな情報を扱うために開発されたニューラルネットワークの一種である(\citex{werbos1990backpropagation})。
     RNNの特徴は、過去の情報を隠れ状態として保持し、それを利用して次の出力を生成する点にある。このような再帰的な構造を持つことにより、RNNは時系列性をもつデータを扱うことが可能である。
     RNNの構造を図\ref{fig:rnn}に示す。
     \begin{figure}[htbp]
       \centering
-      \includegraphics[width=0.75\textwidth]{figures/videoprediction/rnn.jpg}
+      \includegraphics[width=0.9\textwidth]{figures/videoprediction/rnn.jpg}
       \caption{RNNの構造。緑色のブロック\( h \)は隠れ層を表す。}
       \label{fig:rnn}
     \end{figure}
@@ -132,14 +130,13 @@
     活性化関数には、通常、\( tanh \)や\( ReLU \)などの非線形関数が用いられる。
 
     このように、RNNは過去の情報を保持することで、時系列データの予測を行うことが可能であるが、実際には、長期的な依存関係を捉えることに困難を抱えていた。
-    この問題は「勾配消失問題」として知られる。これは、RNNの活性化関数の出力が各ステップで乗算されることにより、ネットワークが深くなるほど、勾配が指数関数的に消失してしまうことに起因する。
+    この問題は勾配消失問題として知られる。これは、RNNの活性化関数の出力が各ステップで乗算されることにより、ネットワークが深くなるほど、勾配が指数関数的に消失してしまうことに起因する。
     
     \subsection{Long Short Term Memory (LSTM)}
-    この問題を解決するために開発されたのが、長短期記憶（LSTM）である\citex{hochreiter1997long}。
-    LSTMは、RNNの基本的な枠組みを保ちつつ、特定の情報を長期間記憶する能力を強化した。
-    LSTMの主要な特徴は、セル状態と呼ばれる内部メカニズムであり、これにより長期的な情報を保持することが可能となる。
+    この勾配消失問題を解決するために\citex{hochreiter1997long}によって開発されたのが、長短期記憶（Long Short Term Memory, LSTM）である。
+    LSTMの主要な特徴は、直前のセルの出力\( h_t \)を次のセルで使用しながら、セル状態\( c_t \)と呼ばれる長期的な情報を変化させることで、より長期的な情報を扱うことが可能である点にある。
 
-    LSTMのユニークな構造は以下の三つのゲートから成る：忘却ゲート、入力ゲート、出力ゲート。
+    LSTMの構造は以下の三つのゲートから成る：
     
     1. \textbf{忘却ゲート（Forget Gate）}：このゲートは、セル状態に含まれる情報の一部を削除する役割を担う。
     LSTMネットワークが長期的な依存関係を学習する過程で、関連性の低い古い情報を捨てることが重要である。
@@ -166,8 +163,8 @@
     LSTMの構造の概念図を図\ref{fig:lstm}に示す。
     \begin{figure}[h]
       \centering
-      \includegraphics[width=\textwidth]{figures/videoprediction/lstm.jpg}
-      \caption{LSTMの構造。}
+      \includegraphics[width=1.05\textwidth]{figures/videoprediction/lstm.jpg}
+      \caption{LSTMの構造。RNNのような再帰的な構造を持ちながら、ゲートによって情報の取捨選択を行うことで、長期的な情報の活用が可能になる。}
       \label{fig:lstm}
     \end{figure}
     

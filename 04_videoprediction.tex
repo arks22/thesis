@@ -235,7 +235,7 @@
         \begin{figure}[htbp]
           \begin{center}
             \includegraphics[width=\textwidth]{figures/videoprediction/predrnn_memory.png}
-            \caption{左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる。}
+            \caption{左がPredRNNにおけ時空間メモリフロー、右がConvLSTMのメモリフローである。このような異なるレベルの層を通過するメモリフローにより、多様な抽象度の表現を学習することができる (\citex{wang2017predrnn})。}
             \label{fig:predrnn}
           \end{center}
         \end{figure}
@@ -267,8 +267,7 @@
           \begin{figure}[htbp]
             \begin{center}
               \includegraphics[width=\textwidth]{figures/videoprediction/predrnn_unit.png}
-              \caption{左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。
-              PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
+              \caption{PredRNNの構造(\citex{wang2017predrnn})。左がST-LSTMユニット、右がPredRNNのメモリフロー。オレンジ色のノードは、従来のConvLSTMと異なるPredRNN独自の構造を示す。PredRNN内のオレンジ色の矢印は、時空間メモリ\( M_t^l \)の移行経路を示す。}
               \label{fig:stlstm}
             \end{center}
           \end{figure}
@@ -291,7 +290,7 @@
       \begin{figure}[htbp]
         \begin{center}
           \includegraphics[width=\textwidth]{figures/videoprediction/mau.png}
-          \caption{左: MAUセルを積み重ねたMAUモデルの構造。オレンジ色の矢印は空間方向のメモリフローを示し、青色の矢印は時間方向のメモリフローを示す。エンコーダ・デコーダ構造は各時間ステップにおいて一回ずつ適用され、情報を効果的に圧縮している。右:MAUセルは、注意（Attention）モジュールと融合（Fusion）モジュールの2つの部分から構成されている。}
+          \caption{左: MAUセルを積み重ねたMAUモデルの構造 (\citex{chang2021mau})。オレンジ色の矢印は空間方向のメモリフローを示し、青色の矢印は時間方向のメモリフローを示す。エンコーダ・デコーダ構造は各時間ステップにおいて一回ずつ適用され、情報を効果的に圧縮している。右:MAUセルは、注意（Attention）モジュールと融合（Fusion）モジュールの2つの部分から構成されている。}
           \label{fig:mau_attention}
         \end{center}
       \end{figure}

@@ -1,50 +1,46 @@
 \chapter{データ} 
 
 \section{SDO / AIA}
-モデルの学習及び評価データとして、NASAのSolar Dynamic Observatory(SDO)(\cite{pesnell2012solar})のAtmospheric Imaging Assembly(AIA)(\cite{lemen2012atmospheric})で撮影された紫外線観測データを用いた。
+モデルの学習及び評価データとして、NASAのSolar Dynamic Observatory (SDO) (\cite{pesnell2012solar})のAtmospheric Imaging Assembly(AIA)(\cite{lemen2012atmospheric})で撮影された紫外線観測データを用いた。
 
 SDOはNASAのLiving With a Star（LWS）プログラムの一つとして2010年2月に打ち上げられた太陽観測衛星である。
-AIA、Helioseismic and Magnetic Imager(HMI)、Extreme Ultraviolet Variability Experiment(EVE)などの高い空間解像度、時間分解能を持つ観測機器を搭載し、地上では不可能な多くの波長でのデータを提供する。
+AIA、Helioseismic and Magnetic Imager (HMI) 、Extreme Ultraviolet Variability Experiment (EVE) などの高い空間解像度、時間分解能を持つ観測機器を搭載し、地上では不可能な多くの波長でのデータを提供する。
 その観測データを用いることにより、太陽物理学、宇宙天気、また地球環境に関する理解や洞察を深めることが期待されている。
 
 AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡で構成されている。
 また、7つの極紫外線フィルターと、2つの紫外線フィルター、および1つの可視光フィルターを持ち、広範な温度帯で太陽大気を観察することを可能にしている。
 本研究で用いられる171Å、193Å、211Åの3つのフィルターは、36秒間隔で撮影され、4096×4096、約1.5秒角の空間解像度を持つ
 
-これらのデータはJoint Science Operations Center(JSOC) によって提供されており、Pythonの太陽物理学を支援するライブラリであるSunpyを用いてダウンロードすることができる。
-
+これらのデータはJoint Science Operations Center (JSOC) によって提供されており、Pythonの太陽物理学を支援するライブラリであるSunpyを用いてダウンロードすることができる。
 
 \subsection{AIA 211Å}
-    表\ref{table:aia_filters_details}のように、211Å( 21.1 nm )のフィルターは、約200万Kの14価鉄(Fe XIV)イオンが放射するスペクトルを捉えるために特化している。
+    表\ref{table:aia_filters_details}のように、211Å (21.1 nm) のフィルターは、約200万Kの14価鉄 (Fe XIV) イオンが放射するスペクトルを捉えるために特化している。
     この波長での観測は、活動領域のコロナを観測するのに最適である。図\ref{fig:sample_aia211}は、これらの特性を示している。
-
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0211.jpg}
+        \includegraphics[width=0.6\textwidth]{figures/data/latest_256_0211.jpg}
         \caption{SDO/AIAの211Åフィルターで撮影された太陽全球紫外線像。強調のために紫色に色付けされている。球面の中上部から中下部には明るく輝く活動領域が見られ、左下部に暗くコロナホールが観測できる。}
         \label{fig:sample_aia211}
     \end{figure}
 
 \subsection{AIA 193Å}
-    表\ref{table:aia_filters_details}のように、193Å( 19.3 nm )のフィルターは、約150万Kの12価鉄(Fe XII)イオンが放射するスペクトル、または約2000万Kの24価鉄(Fe XXIV)イオンが放射するスペクトルを捉えるために特化している。
+    表\ref{table:aia_filters_details}のように、193Å (19.3 nm) のフィルターは、約150万Kの12価鉄 (Fe XII) イオンが放射するスペクトル、または約2000万Kの24価鉄 (Fe XXIV) イオンが放射するスペクトルを捉えるために特化している。
     前者は主にコロナの中程度の高温領域を観測するために用いられ、後者は、主にコロナの高温フレアプラズマを観測するために用いられる。さらに、コロナホールも強調して観測することができる。
     図\ref{fig:sample_aia193}は193Åフィルターで捉えた太陽像を示している。
-    
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0193.jpg}
+        \includegraphics[width=0.6\textwidth]{figures/data/latest_256_0193.jpg}
         \caption{SDO/AIAの193Åフィルターで撮影された太陽全球紫外線像。強調のために橙色に色付けされている。}
         \label{fig:sample_aia193}
     \end{figure}
     
 \subsection{AIA 171Å}
-    表\ref{table:aia_filters_details}のように、171Å( 17.1 nm )のフィルターは、約60万Kの9価鉄(Fe IX)イオンが放射するスペクトルを捉えるために特化している。
+    表\ref{table:aia_filters_details}のように、171Å (17.1 nm) のフィルターは、約60万Kの9価鉄 (Fe IX) イオンが放射するスペクトルを捉えるために特化している。
     この波長での観測は、太陽のコロナループ、静穏領域コロナ、コロナホールなどの磁気構造を詳細に観察することができる。
     図\ref{fig:sample_aia171}に示される171Åフィルターによる観測は、これらの特徴を捉えている。
-    
     \begin{figure}[h]
         \centering
-        \includegraphics[width=0.8\textwidth]{figures/data/latest_256_0171.jpg}
+        \includegraphics[width=0.6\textwidth]{figures/data/latest_256_0171.jpg}
         \caption{SDO/AIAの171Åフィルターで撮影された太陽全球紫外線像。強調のために黄色に色付けされている。193Å、211Åでは観察できない、コロナホールなどの静穏領域のスペクトルも観測できる。}
         \label{fig:sample_aia171}
     \end{figure}
@@ -62,11 +58,9 @@ AIAは主に太陽大気を観測する観測機器であり、4つの望遠鏡�
     \label{table:aia_filters_details}
 \end{table}
 
-
 \section{前処理}
-
 本研究で用いるデータセットには、SDO/AIAのデータが提供されている2010年5月から、2022年10月までのデータが含まれている。  
-この期間に存在するデータから、4時間ごとにデータを抽出し、各波長ごとに約22000枚をデータセットに含んでいる。
+この期間に存在するデータから、4時間ごとにデータを抽出し、各波長約22000枚をデータセットに含んでいる。
 データはJSOCにより提供されているものをダウンロードし、その後、不正な画像を除去し、正規化やスケーリングを行った後、学習用、検証用、テスト用に分割した。
 この手順をアルゴリズム\ref{alg:dataset_creation}に示す。
 これらのデータを、24枚の画像を1セットとして分割する。各セットは24枚の時系列に並んだ画像で構成され、太陽全球の空間的情報の時間的変化を捉えている。
@@ -178,8 +172,17 @@ SDO/AIA望遠鏡で撮影された全球画像には、露光時間が他の画�
 
 
 \subsection{データセットの分割}
-このようにして作成されたデータセットは、約1000セットになり、これを学習用データセットに約800セット、検証データセットに50セット,テストデータセットに50セットというように分割した。
 データセット1単位は、24枚の画像から構成される。
+各画像の間隔は4時間であり、入力シークエンスは0時から44時間後までの12枚、出力シークエンスも同様に48時から92時までの12枚で構成される。
+この様子を図\ref{fig:dataset}に示す。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{figures/data/dataset.jpg}
+    \caption{データセット1単位の構成。入力シークエンスは48時間12枚、出力シークエンス (ターゲットシークエンス)も同様に48時間12枚で構成される。}
+    \label{fig:dataset}
+\end{figure}
+このようにして作成されたデータセットは、約1000セットになり、これを学習用データセットに約800セット、検証データセットに50セット,テストデータセットに50セットというように分割した。
+学習用データセットは2010年5月13日から2022年2月6日、検証データセットは2022年2月7日から2022年10月28日、テストデータセットは2022年10月29日から2023年6月13日のデータを含んでいる。
 
 実験1では、211Åフィルターの画像のみを用いた。実験2では、171Å、193Å、211Åの3つのフィルターの画像を用いた。
 最終的な分割とデータセットの概要を表\ref{tab:dataset}に示す。

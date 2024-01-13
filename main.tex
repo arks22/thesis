@@ -6,6 +6,7 @@
 \usepackage{subcaption} % サブキャプションを扱うためのパッケージ
 \usepackage{url} % URLの挿入のためのパッケージ
 \usepackage{multirow}
+\usepackage{comment}
 \usepackage{array}
 \usepackage{parskip}
 \usepackage{otf}
@@ -13,9 +14,9 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{fancyhdr}
-\usepackage[authoryear]{natbib} % 著者-年式の引用スタイル
+\usepackage[numbers]{natbib}
+
 \newcommand{\citex}[1]{\citeauthor{#1} (\citeyear{#1})}
-\bibliographystyle{plainnat} % natbib互換のスタイル
 
 \pagestyle{fancy}
 \fancyhf{} % ヘッダーとフッターをクリア
@@ -52,9 +53,11 @@
 \input{05_data}
 \input{06_exp1}
 \input{07_exp2}
-\input{08_summary}
-\input{09_thanks}
+\input{08_discussion}
+\input{09_conclusion}
+\input{10_thanks}
 
+\bibliographystyle{unsrtnat} % natbib互換のスタイル
 \bibliography{references} % .bibファイルの名前
 
 \end{document}

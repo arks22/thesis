@@ -295,12 +295,20 @@
     この予測画像を見ると、全体的なシャープさに欠け、ぼやけた見た目になっていることに加え、画像には特定のノイズパターンが見られる。
     これは、モデルが適切に学習できていないことを示唆している。
     \begin{figure}[htbp]
-      \centering
-      \includegraphics[width=\textwidth]{figures/sample.png}
-      \caption{あるテストセットにおける、前回実験(左)と本実験(右)での予測画像の拡大画像。}
+      \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/exp2/sample_exp1.jpg}
+        \caption{前回実験}
+      \end{subfigure}
+      \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/exp2/sample_exp2.jpg}
+        \caption{本実験}
+      \end{subfigure}
+      \caption{あるテストセットにおける、前回実験(左)と本実験(右)での予測画像の拡大画像。本実験には顕著なノイズパターンが見られる。}
       \label{fig:exp2_pd_discuss_1}
     \end{figure}
-    このような現象は、過学習、または学習不足に起因する可能性が高いが、現段階ではその原因は不明である。
+    このような現象は、過学習、または学習不足に起因する可能性が高いが、その詳細な原因は不明である。
     しかし、いずれの場合であっても、モデルの表現力が不足していることは明らかである。
     
     \subsection{改善へのアプローチの提案}
